@@ -1,30 +1,25 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Navbar } from 'reactstrap';
-import { store } from './Store';
-import ProfilePage from './components/user-component/UserProfilePage';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-    <Provider store={store}>
-      <BrowserRouter>
-        <nav>
-          <Navbar/>
-        </nav>
-        <Switch>
-        <Route path="profile" component={ProfilePage}/>
-          
-          {/* <Route path='/login' component={LoginComponent} /> */}
-          <Route path='/'>
-         
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </Provider>
-  </div>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          App.tsx has been changed
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
