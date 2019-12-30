@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navbar } from 'reactstrap';
 import { store } from './Store';
 import ProfilePage from './components/user-component/UserProfilePage';
+import { Login } from './components/login/Login';
 
 const App: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const App: React.FC = () => {
         <Switch>
         <Route path="profile" component={ProfilePage}/>
           
-          {/* <Route path='/login' component={LoginComponent} /> */}
+          <Route path='/login' component={Login} />
           <Route path='/'>
          
           </Route>
