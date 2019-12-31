@@ -6,7 +6,7 @@ export async function userLogin(username: string, password: string) {
         password
     }
     try {
-        const response = await userClient.post('/login', credentials)
+        const response = await userClient.post('/user/login', credentials)
         if(response.status === 200) {
             return {
                 status: response.status,

@@ -49,7 +49,7 @@ import { Link } from 'react-router-dom';
             </Nav>
           </Collapse>
           <NavItem className="nav">
-            <Link to='/login' style={{color: 'black'}}>LOGIN</Link>
+            <Link to='/user/login' style={{color: 'black'}}>LOGIN</Link>
           </NavItem>
         </Navbar>
 

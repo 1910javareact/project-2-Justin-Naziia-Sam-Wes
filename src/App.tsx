@@ -7,7 +7,7 @@ import './components/navbar/navbar.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 //import ProfilePage from './components/user-component/UserProfilePage';
-import { Login } from './components/login/Login';
+import Login from './components/login/LoginContainer';
 
 const App: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           </nav>
           <Switch>
             
-            <Route path='/login' component={Login} />
+            <Route path='/user/login' component={Login} />
             <Route path='/'>
             </Route>
           
@@ -27,7 +27,7 @@ const App: React.FC = () => {
         <p>
           HOME PAGE
         </p>
-          <Route path='/login' component={Login} />
+          <Route path='/user/login' component={Login} />
           <Route path='/'>
          
           </Route>

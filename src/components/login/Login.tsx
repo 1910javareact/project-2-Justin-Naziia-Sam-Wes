@@ -56,7 +56,7 @@ export class Login extends React.Component<ILoginProps, any> {
                     <Button>Sign in</Button>
                 </Form>
                 <p>{this.props.success}</p>
-                <p>{this.props.user.username}</p>
+                {/* <p>{this.props.user.username}</p> */}
             </div>
         );
     }
