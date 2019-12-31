@@ -1,12 +1,8 @@
 import { userClient } from "./TopChatClient"
 
 export async function userLogin(username: string, password: string) {
-    const credentials = {
-        username,
-        password
-    }
     try {
-        const response = await userClient.post('/user/login', credentials)
+        const response = await userClient.post(`/user/login?username=${username}&password=${password}`)
         if(response.status === 200) {
             return {
                 status: response.status,
@@ -20,7 +16,7 @@ export async function userLogin(username: string, password: string) {
         } else {
             return {
                 status: response.status,
-                body: undefined
+                body: response.data
             }
         }
     } catch (e) {
