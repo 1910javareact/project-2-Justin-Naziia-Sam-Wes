@@ -31,7 +31,7 @@ const NavBar = (props: any) => {
                   <Link to='/'>Make a Topic</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/'>Logout</Link>
+                  <Link to='/user/login'>Login</Link>
                 </NavItem>
                 </NavItem>
               </Nav>

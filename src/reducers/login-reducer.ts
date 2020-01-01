@@ -12,7 +12,8 @@ export const loginReducer = (state = initialState, action:any) => {
         case uLoginTypes.SUCCESSFUL_LOGIN:{
             return {
                 ...state,
-                user:action.payload.user
+                user:action.payload.user,
+                userId: action.payload.user.userId
             }
         }
         case uLoginTypes.INVALID_CREDENTIALS: {
