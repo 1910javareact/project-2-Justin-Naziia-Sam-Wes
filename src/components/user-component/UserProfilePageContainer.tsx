@@ -6,12 +6,14 @@ import { UserComponent } from "./UserProfilePageComponent";
 
 const mapStateToProps = (state: IState) => {
     return {
-        user: state.login.user
+        user: state.userById.user
     }
 }
 
 const mapDispatchtoProps = {
     userAction
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchtoProps)(UserComponent)

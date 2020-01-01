@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 //import ProfilePage from './components/user-component/UserProfilePage';
 import { Login } from './components/login/Login';
+import UserComponent from "./components/user-component/UserProfilePageContainer";
+
 
 const App: React.FC = () => {
   return (
@@ -20,6 +22,7 @@ const App: React.FC = () => {
           <Switch>
             
             <Route path='/login' component={Login} />
+            <Route path='/userprofile' component={UserComponent} />
             <Route path='/'>
             </Route>
           
