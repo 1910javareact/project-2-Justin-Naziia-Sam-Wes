@@ -5,8 +5,7 @@ import { IState } from "../../reducers"
 
 const mapStateToProps = (state: IState) => {
     return {
-        user: state.login.user,
-        success: state.login.success
+        user: state.login.user
     }
 }
 
