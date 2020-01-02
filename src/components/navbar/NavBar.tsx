@@ -33,6 +33,9 @@ const NavBar = (props: any) => {
                 <NavItem>
                   <Link to='/user/login'>Login</Link>
                 </NavItem>
+                <NavItem>
+                  <Link to='/user/register'>Sign Up</Link>
+                </NavItem>
                 </NavItem>
               </Nav>
               
