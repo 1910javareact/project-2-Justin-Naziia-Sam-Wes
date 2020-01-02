@@ -1,8 +1,8 @@
-import { userClient } from "./TopChatClient"
+import { client } from "./TopChatClient"
 
 export async function userLogin(username: string, password: string) {
     try {
-        const response = await userClient.post(`/user/login?username=${username}&password=${password}`)
+        const response = await client.post(`/user/login?username=${username}&password=${password}`)
         if (response.status === 200) {
             return {
                 status: response.status,
@@ -36,7 +36,7 @@ export async function submitRegisterUser(userId: number, username: String, first
         password
     }
     try {
-        const response = await userClient.post(`/register`, submit)
+        const response = await client.post(`/user/register`, submit)
         if (response.status === 200) {
             return {
                 status: response.status,
@@ -56,7 +56,7 @@ export async function submitRegisterUser(userId: number, username: String, first
 
 export const getUserById = async (id: number) => {
     try {
-        const response = await userClient.get('/user/' + id)
+        const response = await client.get('/user/' + id)
         if (response.status === 200) {
             return {
                 status: response.status,
@@ -76,7 +76,7 @@ export const getUserById = async (id: number) => {
 
 export const getAllUsersAPI = async () => {
     try {
-        const response = await userClient.get('/user')
+        const response = await client.get('/user')
         if (response.status === 200) {
             return {
                 status: response.status,
@@ -103,7 +103,7 @@ export async function updateUserAPI(user_id: number, username: string, first_nam
         email
     }
     try {
-        const response = await userClient.patch('/user', update)
+        const response = await client.patch('/user', update)
         if (response.status === 201) {
             return {
                 status: response.status,

@@ -20,7 +20,7 @@ export const uLogin = (username:string, password:string) => async (dispatch: any
             dispatch({
                 type: uLoginTypes.INVALID_CREDENTIALS,
                 data: {
-                    success: res.body
+                    message: 'Invalid Credentials'
                 }
             })
         } else {
