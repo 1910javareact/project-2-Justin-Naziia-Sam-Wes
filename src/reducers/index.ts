@@ -2,7 +2,7 @@ import { User } from "../models/user";
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
 //import { makeBoardReducer } from "./make-board-reducer";
-import { userByIdReducer } from "./u-profile-reducer";
+import { userByIdReducer } from "./userbyid-reducer";
 
 export interface ILoginState {
     user: User,

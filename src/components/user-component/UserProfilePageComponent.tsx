@@ -86,12 +86,11 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
 
                     
                         <tr>                  
-                            
-                            {/* <td>{this.props.user.userId}</td>
+                            <td>{this.props.user.userId}</td>
                             <td>{this.props.user.username}</td>
                             <td>{this.props.user.firstName}</td>
                             <td>{this.props.user.lastName}</td>
-                            <td>{this.props.user.email}</td> */}
+                            <td>{this.props.user.email}</td>
                         </tr>
                     </tbody>
                 </Table>
