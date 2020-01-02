@@ -1,7 +1,8 @@
 import React, { SyntheticEvent } from 'react';
-import { Form, Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, Row, Col, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { store } from '../../Store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface ILoginProps {
     uLogin: (u: string, p: string) => void
@@ -41,6 +42,7 @@ export class Login extends React.Component<ILoginProps, any> {
         } else {
             return (
                 <div>
+                    <Container fluid dark>
                     <Form onSubmit={this.submitLogin}>
                         <Row form>
                             <Col md={6}>
@@ -56,8 +58,10 @@ export class Login extends React.Component<ILoginProps, any> {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <Button>Sign in</Button>
+                        <Button type="submit" color="secondary">Login</Button>
+                        
                     </Form>
+                    </Container>
                 </div>
             );
         }

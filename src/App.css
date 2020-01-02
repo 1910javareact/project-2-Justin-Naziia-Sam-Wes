@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-size: medium;
-  background-color: azure;
+
   
 }
 
@@ -19,6 +19,10 @@
 .cardP {
   text-align: left;
   padding-left: 5%;
+}
+form {
+  padding: 10% 20% ;
+ 
 }
 
 /* .App-header {
@@ -46,15 +50,3 @@
 }
 
 
-/* .straight {
-  margin-left: 20px;
-
-    display:inline-block;
-    float:left;
-
-} */
-
-/* html { 
-  background-color: rgb(74, 100, 212);
-   
-} */

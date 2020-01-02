@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { IState } from '../../reducers'
-import {} from '../../action-mappers'
 import { RegisterUserComponent } from './RegisterUserComponent'
 import { registerUser } from '../../action-mappers/register-user-action-mapper'
 

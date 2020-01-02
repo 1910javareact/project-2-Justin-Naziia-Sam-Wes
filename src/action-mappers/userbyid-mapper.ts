@@ -5,7 +5,7 @@ export const UserByIdType = {
     FAILED_USER_BY_ID: 'FAILED_USER_BY_ID'
 }
 
-export const UserById = (userId: number) => async (dispatch: any) => {
+export const userById = (userId: number) => async (dispatch: any) => {
     try {
         let res = await getUserById(userId)
         if (res.status === 200) {

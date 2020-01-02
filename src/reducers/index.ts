@@ -1,7 +1,7 @@
 import { User } from "../models/user";
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
-import { userByIdReducer } from "./u-profile-reducer";
+import { userByIdReducer } from "./userbyid-reducer";
 
 export interface ILoginState {
     user: User,
@@ -9,8 +9,8 @@ export interface ILoginState {
 }
 
 export interface IState {
-    userById: IUserState;
     login: ILoginState
+    user: IUserState
 }
 
 export interface IUserState {
@@ -19,6 +19,6 @@ export interface IUserState {
 
 export const state = combineReducers<IState>({
     login: loginReducer,
-    userById: userByIdReducer
+    user: userByIdReducer
 
 })
