@@ -14,7 +14,7 @@ export interface IUserState {
 
 export interface IState {
     login: ILoginState
-    user: IUserState
+    userById: IUserState
 }
 
 export const state = combineReducers<IState>({
