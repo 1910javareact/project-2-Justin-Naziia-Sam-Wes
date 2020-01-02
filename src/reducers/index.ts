@@ -8,17 +8,16 @@ export interface ILoginState {
     success: string
 }
 
+export interface IUserState {
+    user: User
+}
+
 export interface IState {
     userById: IUserState;
     login: ILoginState
 }
 
-export interface IUserState {
-    user: User
-}
-
 export const state = combineReducers<IState>({
     login: loginReducer,
     userById: userByIdReducer
-
 })

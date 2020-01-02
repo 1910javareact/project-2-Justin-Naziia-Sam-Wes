@@ -6,10 +6,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './components/navbar/navbar.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-//import ProfilePage from './components/user-component/UserProfilePage';
-import { Login } from './components/login/Login';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
-
+import Login from './components/login/LoginContainer';
 
 const App: React.FC = () => {
   return (
@@ -20,9 +18,8 @@ const App: React.FC = () => {
             <NavBar/>
           </nav>
           <Switch>
-            
-            <Route path='/login' component={Login} />
             <Route path='/userprofile' component={UserComponent} />
+            <Route path='/user/login' component={Login} />
             <Route path='/'>
             </Route>
           
@@ -30,7 +27,7 @@ const App: React.FC = () => {
         <p>
           HOME PAGE
         </p>
-          <Route path='/login' component={Login} />
+          <Route path='/user/login' component={Login} />
           <Route path='/'>
          
           </Route>

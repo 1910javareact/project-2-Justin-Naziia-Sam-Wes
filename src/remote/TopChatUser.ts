@@ -1,18 +1,14 @@
 import { userClient } from "./TopChatClient"
 
 export async function userLogin(username: string, password: string) {
-    const credentials = {
-        username,
-        password
-    }
     try {
-        const response = await userClient.post('/login', credentials)
-        if(response.status === 200) {
+        const response = await userClient.post(`/user/login?username=${username}&password=${password}`)
+        if (response.status === 200) {
             return {
                 status: response.status,
                 body: response.data
             }
-        } else if(response.status === 401) {
+        } else if (response.status === 401) {
             return {
                 status: response.status,
                 body: 'Invalid credentials'
@@ -20,7 +16,36 @@ export async function userLogin(username: string, password: string) {
         } else {
             return {
                 status: response.status,
-                body: undefined
+                body: response.data
+            }
+        }
+    } catch (e) {
+        console.log(e);
+        throw new Error('Something went wrong')
+    }
+}
+
+export async function submitRegisterUser(userId: number, username: String, firstName: String, lastName: String, email: String, created: Date, password: String) {
+    const submit = {
+        userId,
+        username,
+        firstName,
+        lastName,
+        email,
+        created,
+        password
+    }
+    try {
+        const response = await userClient.post(`/register`, submit)
+        if (response.status === 200) {
+            return {
+                status: response.status,
+                body: response.data
+            }
+        } else {
+            return {
+                status: response.status,
+                body: response.data
             }
         }
     } catch (e) {
@@ -32,7 +57,7 @@ export async function userLogin(username: string, password: string) {
 export const getUserById = async (id: number) => {
     try {
         const response = await userClient.get('/user/' + id)
-        if(response.status === 200) {
+        if (response.status === 200) {
             return {
                 status: response.status,
                 body: response.data
@@ -52,7 +77,7 @@ export const getUserById = async (id: number) => {
 export const getAllUsersAPI = async () => {
     try {
         const response = await userClient.get('/user')
-        if(response.status === 200) {
+        if (response.status === 200) {
             return {
                 status: response.status,
                 body: response.data
@@ -79,7 +104,7 @@ export async function updateUserAPI(user_id: number, username: string, first_nam
     }
     try {
         const response = await userClient.patch('/user', update)
-        if(response.status === 201) {
+        if (response.status === 201) {
             return {
                 status: response.status,
                 body: response.data

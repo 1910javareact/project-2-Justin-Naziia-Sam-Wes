@@ -1,11 +1,10 @@
-import React, { SyntheticEvent } from 'react'
-import { User } from '../../models/user';
+import React, { SyntheticEvent } from 'react';
 import { Form, Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import { store } from '../../Store';
 
 interface ILoginProps {
-    user:User
-    success: string
-    uLogin:(u:string, p:string) => void
+    uLogin: (u: string, p: string) => void
 }
 
 export class Login extends React.Component<ILoginProps, any> {
@@ -13,7 +12,8 @@ export class Login extends React.Component<ILoginProps, any> {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userId: 0
         };
     }
 
@@ -33,31 +33,34 @@ export class Login extends React.Component<ILoginProps, any> {
 
     submitLogin = async (e: SyntheticEvent) => {
         e.preventDefault();
-        this.props.uLogin(this.state.username, this.state.password)
+        this.props.uLogin(this.state.username, this.state.password)   
     }
+    
     render() {
-        return (
-            <div>
-                <Form onSubmit={this.submitLogin}>
-                    <Row form>
-                        <Col md={6}>
-                            <FormGroup>
-                                <Label for='exampleUsername'>Username</Label>
-                                <Input value={this.state.username} onChange={this.updateUsername} type='text' name='username' id='exampleUsername' placeholder='Enter username' />
-                            </FormGroup>
-                        </Col>
-                        <Col md={6}>
-                            <FormGroup>
-                                <Label for='examplePassword'>Password</Label>
-                                <Input value={this.state.password} onChange={this.updatePassword} type='password' name='password' id='examplePassword' placeholder='Enter password' />
-                            </FormGroup>
-                        </Col>
-                    </Row>
-                    <Button>Sign in</Button>
-                </Form>
-                <p>{this.props.success}</p>
-                <p>{this.props.user.username}</p>
-            </div>
-        );
+        if(store.getState().login.user.userId){
+            return <Redirect to="/" />
+        } else {
+            return (
+                <div>
+                    <Form onSubmit={this.submitLogin}>
+                        <Row form>
+                            <Col md={6}>
+                                <FormGroup>
+                                    <Label for='exampleUsername'>Username</Label>
+                                    <Input value={this.state.username} onChange={this.updateUsername} type='text' name='username' id='exampleUsername' placeholder='Enter username' required/>
+                                </FormGroup>
+                            </Col>
+                            <Col md={6}>
+                                <FormGroup>
+                                    <Label for='examplePassword'>Password</Label>
+                                    <Input value={this.state.password} onChange={this.updatePassword} type='password' name='password' id='examplePassword' placeholder='Enter password' required/>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                        <Button>Sign in</Button>
+                    </Form>
+                </div>
+            );
+        }
     }
 }
