@@ -70,7 +70,7 @@ export const getUserById = async (id: number) => {
         }
     } catch (e) {
         console.log(e);
-        throw new Error('Something went wrong')
+        throw new Error ('Something went wrong')
     }
 }
 
@@ -88,7 +88,7 @@ export const getAllUsersAPI = async () => {
                 body: undefined
             }
         }
-    } catch (e) {
+    } catch(e) {
         console.log(e);
         throw new Error('Something went wrong')
     }
