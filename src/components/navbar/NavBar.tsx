@@ -44,7 +44,6 @@ const NavBar = (props: any) => {
     </div>
   );
 }
-
 export default NavBar;
 
 
