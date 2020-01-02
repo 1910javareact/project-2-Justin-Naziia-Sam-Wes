@@ -1,6 +1,6 @@
 import { IUserState } from ".";
 import { User } from "../models/user";
-import { UserById, UserByIdType } from "../action-mappers/u-profile-page-mapper";
+import { UserByIdType } from "../action-mappers/userbyid-mapper";
 
 const initialState: IUserState = {
     user: new User(0, '', '', '', '', new Date(),'')

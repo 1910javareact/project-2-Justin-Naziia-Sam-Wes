@@ -1,7 +1,8 @@
 import React, { SyntheticEvent } from 'react';
-import { Form, Row, Col, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, Row, Col, FormGroup, Label, Input, Button, Container } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { store } from '../../Store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface ILoginProps {
     uLogin: (u: string, p: string) => void
@@ -12,7 +13,8 @@ export class Login extends React.Component<ILoginProps, any> {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userId: 0
         };
     }
 
@@ -32,15 +34,16 @@ export class Login extends React.Component<ILoginProps, any> {
 
     submitLogin = async (e: SyntheticEvent) => {
         e.preventDefault();
-        this.props.uLogin(this.state.username, this.state.password)
+        this.props.uLogin(this.state.username, this.state.password)   
     }
     
     render() {
-        if (store.getState().login.user.userId) {
+        if(store.getState().login.user.userId){
             return <Redirect to="/" />
         } else {
             return (
                 <div>
+                    <Container fluid dark>
                     <Form onSubmit={this.submitLogin}>
                         <Row form>
                             <Col md={6}>
@@ -56,11 +59,10 @@ export class Login extends React.Component<ILoginProps, any> {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <div>
-                            <p>{store.getState().login.message}</p>
-                        </div>
-                        <Button>Sign in</Button>
+                        <Button type="submit" color="secondary">Login</Button>
+                        
                     </Form>
+                    </Container>
                 </div>
             );
         }

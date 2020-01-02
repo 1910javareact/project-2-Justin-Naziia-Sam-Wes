@@ -27,7 +27,7 @@ export interface IState {
 }
 
 export const state = combineReducers<IState>({
-    login:loginReducer,
+    login: loginReducer,
     //board:makeBoardReducer
     userById: userByIdReducer
 })

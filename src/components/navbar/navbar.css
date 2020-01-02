@@ -1,18 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
 
 nav {
-    background:#5597eefd;
+    background:#b43f09fd;
     padding: 10px 0px;
     
 }
-nav-item {
- text-decoration: none;
-}
+
 NavbarBrand {
     font-size: large;
     font-weight: 500;
     
 }
-Navbar {
-    color: rgb(171, 238, 38);
+NavLink {
+    color: black;
 }

@@ -2,17 +2,18 @@ import React, { SyntheticEvent } from 'react'
 import { User } from '../../models/user';
 
 import { FormGroup, Label, Input, Form, Button, Table } from 'reactstrap'
+import { store } from '../../Store';
 
 interface IUserByIdComponentProps {
     user: User
-    UserById: (user_id: number) => void
+    userById: (userId: number) => void
 }
 
 export class UserComponent extends React.Component<IUserByIdComponentProps, any>{
     constructor(props: any) {
         super(props)
         this.state = {
-            user_id: 0
+            userId: 0
         }
     }
     updateId = (e: any) => {
@@ -23,12 +24,15 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
     }
     submitUserId = async (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.UserById(this.state.user_id)
+        this.props.userById(this.state.userId)
     }
 
     render() {
+
+        const user = store.getState().user.user;
         return (
             <div>
+                
                 <Form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
                     <FormGroup>
                         <Label for="userId">User By ID</Label>
@@ -40,24 +44,54 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
                     </Button>
                 </Form>
 
-                <Table hover>
-                    <thead>
-                        <tr>
-                            <th>User ID</th>
-                            <th>Username</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
+            <Table hover>
+                   
+            <tbody>
+            <tr>
+                <td>
+                     <th>Username</th>
+                </td>
+                <td>
+                    <td>{user.username}</td>
+                </td>
+            </tr>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{this.props.user.user_id}</td>
+            
+            <tr>
+                <td>
+                     <th>First Name</th>
+                </td>
+                <td>
+                    <td>{user.firstName}</td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                     <th>Last Name</th>
+                </td>
+                <td>
+                    <td>{user.lastName}</td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                     <th>Email</th>
+                </td>
+                <td>
+                    <td>{user.email}</td>
+                </td>
+            </tr>
+
+                    
+                        <tr>                  
+                            
+                            {/* <td>{this.props.user.userId}</td>
                             <td>{this.props.user.username}</td>
-                            <td>{this.props.user.first_name}</td>
-                            <td>{this.props.user.last_name}</td>
-                            <td>{this.props.user.email}</td>
+                            <td>{this.props.user.firstName}</td>
+                            <td>{this.props.user.lastName}</td>
+                            <td>{this.props.user.email}</td> */}
                         </tr>
                     </tbody>
                 </Table>
