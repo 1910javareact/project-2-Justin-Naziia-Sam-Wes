@@ -6,7 +6,7 @@ import { UserComponent } from "./UserProfilePageComponent";
 
 const mapStateToProps = (state: IState) => {
     return {
-        user: state.user.user
+        user: state.userById.user
     }
 }
 

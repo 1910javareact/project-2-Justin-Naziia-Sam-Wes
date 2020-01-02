@@ -24,15 +24,6 @@ const App: React.FC = () => {
             <Route path='/user/register' component={RegisterUserComponent} />
             <Route path='/'>
             </Route>
-          
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          HOME PAGE
-        </p>
-          <Route path='/user/login' component={Login} />
-          <Route path='/'>
-         
-          </Route>
         </Switch>
         </BrowserRouter>
         </Provider>
