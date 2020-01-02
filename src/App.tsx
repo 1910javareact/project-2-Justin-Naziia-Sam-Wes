@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './components/navbar/navbar.css';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-//import ProfilePage from './components/user-component/UserProfilePage';
+import UserComponent from "./components/user-component/UserProfilePageContainer";
 import Login from './components/login/LoginContainer';
 
 const App: React.FC = () => {
@@ -18,7 +18,7 @@ const App: React.FC = () => {
             <NavBar/>
           </nav>
           <Switch>
-            
+            <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/'>
             </Route>

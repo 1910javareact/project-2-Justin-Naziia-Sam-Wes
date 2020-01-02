@@ -25,7 +25,7 @@ const NavBar = (props: any) => {
                   <Link to='/'>Home</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to='/'>User</Link>
+                  <Link to='/userprofile'>User</Link>
                 </NavItem>
                 <NavItem>
                   <Link to='/'>Make a Topic</Link>

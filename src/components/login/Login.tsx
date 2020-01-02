@@ -35,6 +35,7 @@ export class Login extends React.Component<ILoginProps, any> {
         e.preventDefault();
         this.props.uLogin(this.state.username, this.state.password)   
     }
+    
     render() {
         if(store.getState().login.user.userId){
             return <Redirect to="/" />
