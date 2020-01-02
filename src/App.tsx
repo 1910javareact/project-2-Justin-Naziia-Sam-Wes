@@ -6,8 +6,10 @@ import NavBar from './components/navbar/NavBar';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import Login from './components/login/LoginContainer';
-import { UserComponent } from './components/user-component/UserProfilePageComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserComponent from "./components/user-component/UserProfilePageContainer";
+
+
 
 
 const App: React.FC = () => {
