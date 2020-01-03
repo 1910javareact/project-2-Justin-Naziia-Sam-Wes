@@ -14,7 +14,7 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
             firstName: '',
             lastName: '',
             email: '',
-            created: Date.now(),
+            created: new Date(),
             password: ''
         }
     }
@@ -56,7 +56,7 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
 
     callSubmitRegisterUser = async (e:SyntheticEvent) => {
         e.preventDefault()
-        this.props.registerUser(this.state.userId, this.state.username, this.state.firstName, this.state.lastName, this.state.email, this.state.created, this.state.password)
+        this.props.registerUser(this.state.userId, this.state.username, this.state.firstName, this.state.lastName, this.state.email, this.state.created, this.state.password);
     }
 
     render() {
