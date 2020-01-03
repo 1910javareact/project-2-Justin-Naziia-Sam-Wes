@@ -36,10 +36,10 @@ export interface IRegisterState {
 }
 
 export interface IState {
-    userById: IUserState;
     login: ILoginState
     board: IBoardState
     register: IRegisterState
+    userById: IUserState
 }
 
 export const state = combineReducers<IState>({
