@@ -29,7 +29,7 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
 
     render() {
 
-        const user = store.getState().user.user;
+        const user = store.getState().userById.user;
         return (
             <div>
                 <Form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
