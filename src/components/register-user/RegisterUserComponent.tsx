@@ -2,7 +2,6 @@ import React, { SyntheticEvent } from 'react';
 import { Button, Form, Label, Input } from 'reactstrap'
 
 interface IRegisterUserProps {
-    
     registerUser: (userId:number, username:String, firstName:String, lastName:String, email:String, created:Date, password:String) => void
 }
 
@@ -69,7 +68,7 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
                     <Input value={this.state.firstName} onChange={this.upFirstName} type="text" name="firstName" id="firstName" placeholder="First Name" required/>
                     <Input value={this.state.lastName} onChange={this.upLastName} type="text" name="lastName" id="lastName" placeholder="Last Name" required/>
                     <Input value={this.state.email} onChange={this.upEmail} type="email" name="email" id="email" placeholder="Email" required/>
-                    <Input value={this.state.password} onChange={this.upPassword} type="password" name="password" id="password" placeholder="Password" required/>
+                    <Input value={this.state.password} onChange={this.upPassword} type="text" name="password" id="password" placeholder="Password" required/>
                     <Button >Submit</Button>
                 </Form>
             </>

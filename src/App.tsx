@@ -5,12 +5,10 @@ import './components/navbar/navbar.css';
 import NavBar from './components/navbar/NavBar';
 import { Provider } from 'react-redux';
 import { store } from './Store';
-import Login from './components/login/LoginContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
-
-
-
+import Login from './components/login/LoginContainer';
+import RegisterUserComponent from './components/register-user/RegisterUserContainer';
 
 const App: React.FC = () => {
   return (
@@ -23,8 +21,9 @@ const App: React.FC = () => {
           <Switch>
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
+            <Route path='/user/register' component={RegisterUserComponent} />
             <Route path='/'>
-            </Route>      
+            </Route>
         </Switch>
         </BrowserRouter>
         </Provider>

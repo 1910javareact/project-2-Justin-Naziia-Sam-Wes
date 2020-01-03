@@ -4,7 +4,7 @@ import { uLoginTypes } from "../action-mappers/login-action-mappers";
 
 const initialState: ILoginState = {
     user: new User(0, '', '', '', '', new Date(), ''),
-    success: ''
+    message: ''
 }
 
 export const loginReducer = (state = initialState, action:any) => {
@@ -12,14 +12,13 @@ export const loginReducer = (state = initialState, action:any) => {
         case uLoginTypes.SUCCESSFUL_LOGIN:{
             return {
                 ...state,
-                user:action.payload.user,
-                userId: action.payload.user.userId
+                user: action.payload.user
             }
         }
         case uLoginTypes.INVALID_CREDENTIALS: {
             return {
                 ...state,
-                success: 'Invalid Credentials'
+                message: 'Invalid Credentials'
             }
         }
         default:
