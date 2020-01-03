@@ -30,7 +30,7 @@ const NavBar = (props: any) => {
             </NavItem>
 
             <NavItem>
-              <NavLink href='/'>Make a Topic</NavLink>
+              <NavLink href='/board/create'>Make a Board</NavLink>
             </NavItem>
           
             <NavItem>

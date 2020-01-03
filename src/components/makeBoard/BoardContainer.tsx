@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 import { BoardComponent } from "./BoardComponent";
 import { createBoard } from "../../action-mappers/board-action-mapper"
 
-const mapStateToProps = (_state: IState) => {
-    // return {
-    //     board: state.board.
-    // }
+const mapStateToProps = (state: IState) => {
+    return {
+        newBoard: state.board.newBoard,
+        boardName: '',
+        primaryInfo: '',
+        created: Date.now(),
+        topicId: 0,
+        message: ''
+    }
 }
 
 const mapDispatchToProps = {
     createBoard
 }
 
-//export default connect(mapStateToProps, mapDispatchToProps)(BoardComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(BoardComponent)

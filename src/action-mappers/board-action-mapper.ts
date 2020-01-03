@@ -5,19 +5,19 @@ export const boardTypes = {
     UNSUCCESSFUL_SUBMIT: 'BOARD_SUBMIT_UNSUCCESSFUL'
 }
 
-export const createBoard = (boardId: number, boardName: string, primaryInfo: string, created: Date, topicId: number) => async (dispatch: any) => {
+export const createBoard = (boardId: number, boardName: string, primaryInfo: string, created: Date, topic: number) => async (dispatch: any) => {
     try {
-        let res = await submitBoard(boardId, boardName, primaryInfo, created, topicId)
-        if(res.status === 201) {
+        let res = await submitBoard(boardId, boardName, primaryInfo, created, topic)
+        if(res.status === 200) {
             dispatch({
                 type: boardTypes.SUCCESSFUL_SUBMIT,
                 payload: {
-                    board: res.body
+                    newBoard: res.body
                 }
             })
         } else {
             dispatch({
-                type: boardTypes.UNSUCCESSFUL_SUBMIT
+                type: boardTypes.UNSUCCESSFUL_SUBMIT           
             })
         }
     } catch (e) {
