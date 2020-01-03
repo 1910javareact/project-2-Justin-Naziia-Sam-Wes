@@ -21,8 +21,8 @@ export interface IUserState {
 }
 
 export interface IState {
-    userById: IUserState;
     login: ILoginState
+    userById: IUserState
     //board: IBoardState
 }
 
