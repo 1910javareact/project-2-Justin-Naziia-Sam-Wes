@@ -37,6 +37,10 @@ const NavBar = (props: any) => {
               <NavLink href='/user/login' >Login</NavLink>
             </NavItem>
 
+            <NavItem>
+              <NavLink href='/user/register' >Sign up</NavLink>
+            </NavItem>
+
           </Nav>
           
         </Collapse>
@@ -44,7 +48,6 @@ const NavBar = (props: any) => {
     </div>
   );
 }
-
 export default NavBar;
 
 

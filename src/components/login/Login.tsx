@@ -49,13 +49,13 @@ export class Login extends React.Component<ILoginProps, any> {
                             <Col md={6}>
                                 <FormGroup>
                                     <Label for='exampleUsername'>Username</Label>
-                                    <Input value={this.state.username} onChange={this.updateUsername} type='text' name='username' id='exampleUsername' placeholder='Enter username' required/>
+                                    <Input value={this.state.username} onChange={this.updateUsername} type='text' name='username' id='exampleUsername' placeholder='Enter username' required />
                                 </FormGroup>
                             </Col>
                             <Col md={6}>
                                 <FormGroup>
                                     <Label for='examplePassword'>Password</Label>
-                                    <Input value={this.state.password} onChange={this.updatePassword} type='password' name='password' id='examplePassword' placeholder='Enter password' required/>
+                                    <Input value={this.state.password} onChange={this.updatePassword} type='password' name='password' id='examplePassword' placeholder='Enter password' required />
                                 </FormGroup>
                             </Col>
                         </Row>
