@@ -10,6 +10,7 @@ import UserComponent from "./components/user-component/UserProfilePageContainer"
 import Login from './components/login/LoginContainer';
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
 import TopicBoardComponent  from './components/topic-board/TopicBoardContainer';
+import BoardComponent from './components/makeBoard/BoardContainer';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,8 @@ const App: React.FC = () => {
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
             <Route path='/home' component={TopicBoardComponent}>
+            <Route path='/board/create' component={BoardComponent} />
+            <Route path='/'>
             </Route>
         </Switch>
         </BrowserRouter>

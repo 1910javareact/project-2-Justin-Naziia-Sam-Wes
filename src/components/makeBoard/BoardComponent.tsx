@@ -1,8 +1,10 @@
 import React, { SyntheticEvent } from 'react'
 import { Form, Input, Button } from 'reactstrap';
+import { store } from '../../Store';
+import { Redirect } from 'react-router-dom';
 
 interface IBoardProps {
-    createBoard: (boardId: number, boardName: String, primaryInfo: String, created: Date, topicId: number) => void
+    createBoard: (boardId: number, boardName: String, primaryInfo: String, created: Date, topic: number) => Promise<void>
 }
 
 export class BoardComponent extends React.Component<IBoardProps, any> {
@@ -12,7 +14,7 @@ export class BoardComponent extends React.Component<IBoardProps, any> {
             boardName: '',
             primaryInfo: '',
             created: Date.now(),
-            topicId: 0
+            topic: 0
         };
     }
 
@@ -33,26 +35,31 @@ export class BoardComponent extends React.Component<IBoardProps, any> {
     updateTopicId = (e: any) => {
         this.setState({
             ...this.state,
-            topicId: e.target.value
+            topic: e.target.value
         })
     }
 
-    callSubmitBoard = async (e: SyntheticEvent) => {
+    callCreateBoard = async (e: SyntheticEvent) => {
         e.preventDefault();
-        this.props.createBoard(0, this.state.boardName, this.state.primaryInfo, this.state.created, this.state.topicId)
+        this.props.createBoard(0, this.state.boardName, this.state.primaryInfo, this.state.created, this.state.topic)
     }
 
     render() {
+        if(store.getState().board.newBoard.boardId) {
+            return <Redirect to="/" />
+        }
         return (
-            <div>
-                <Form onSubmit={this.callSubmitBoard}>
-                    <Input value={this.state.boardName} onChange={this.updateBoardName} type="text" name="boardName" id="boardName" placeholder="Name of the board" required/>
+            <>
+                <Form onSubmit={this.callCreateBoard}>
+                    <Input value={this.state.boardName} onChange={this.updateBoardName} type="text" name="boardName" id="boardName" placeholder="Name of the board" required />
                     <Input value={this.state.primaryInfo} onChange={this.updatePrimaryInfo} type="text" name="PrimaryInfo" id="PrimaryInfo" placeholder="Add any starting information (optional)" />
-                    <select id = 'Topic' placeholder = 'Topic' required onChange={this.updateTopicId} />
-                    <option value={1}>Don't forget to add these</option>
+                    <select id='Topic' placeholder='Topic' onChange={this.updateTopicId} required>
+                        <option></option>
+                        <option value={1}>Don't forget to add these</option>
+                    </select>
                     <Button >Submit</Button>
                 </Form>
-            </div>
+            </>
         )
     }
 }
