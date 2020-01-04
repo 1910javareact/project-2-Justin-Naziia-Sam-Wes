@@ -27,10 +27,9 @@ const App: React.FC = () => {
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
-            <Route path='/' component={TopicBoardComponent} />
             <Route path='/board/create' component={MakeBoardComponent} />
             <Route path='/board/display' component={DisplayBoardComponent} />
-            <Route path='/'></Route>
+            <Route path='/' component={TopicBoardComponent} />
             </Switch>
         </BrowserRouter>
         </Provider>
