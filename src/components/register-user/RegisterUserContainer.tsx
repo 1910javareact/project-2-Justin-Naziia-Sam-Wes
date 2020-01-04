@@ -5,7 +5,7 @@ import { registerUser } from '../../action-mappers/register-user-action-mapper'
 
 const mapStateToProps = (state: IState) => {
     return {
-        user: state.login.user,
+        user: state.login.user
     }
 }
 

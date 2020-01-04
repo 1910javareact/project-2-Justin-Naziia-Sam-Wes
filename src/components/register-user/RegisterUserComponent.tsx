@@ -14,7 +14,7 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
             firstName: '',
             lastName: '',
             email: '',
-            created: Date.now(),
+            created: new Date(),
             password: ''
         }
     }
@@ -56,7 +56,7 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
 
     callSubmitRegisterUser = async (e:SyntheticEvent) => {
         e.preventDefault()
-        this.props.registerUser(this.state.userId, this.state.username, this.state.firstName, this.state.lastName, this.state.email, this.state.created, this.state.password)
+        this.props.registerUser(this.state.userId, this.state.username, this.state.firstName, this.state.lastName, this.state.email, this.state.created, this.state.password);
     }
 
     render() {
@@ -74,4 +74,22 @@ export class RegisterUserComponent extends React.Component<IRegisterUserProps, a
             </>
         )
     }
+//     render() {
+//         return (
+//             <>
+//                 <Form onSubmit={this.callSubmitRegisterUser}>
+//                     <Label for="findUser" hidden>Register Here:</Label>
+//                     <Input value={this.state.username} onChange={this.upUsername} type="text" name="username" id="username" placeholder="Username" />
+//                     <Input value={this.state.firstName} onChange={this.upFirstName} type="text" name="firstName" id="firstName" placeholder="First Name" />
+//                     <Input value={this.state.lastName} onChange={this.upLastName} type="text" name="lastName" id="lastName" placeholder="Last Name" />
+//                     <Input value={this.state.email} onChange={this.upEmail} type="text" name="email" id="email" placeholder="Email" />
+//                     <Input value={this.state.password} onChange={this.upPassword} type="password" name="password" id="password" placeholder="Password" />
+//                     <Button >Submit</Button>
+//                 </Form>
+//             </>
+//         )
+//     }
+// }
+
 }
+

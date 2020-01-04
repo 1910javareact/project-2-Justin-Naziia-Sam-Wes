@@ -21,10 +21,9 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
 
     componentDidMount() {
         this.props.getTopicBoards()
-        this.setState({
-            ...this.state
-            //topicBoard: [new Topic( 0,'','', [])]
-        })
+            this.setState({
+                ...this.state
+            })
     }
 
     
@@ -41,7 +40,8 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                             <CardBody>{e.topicBoards.map((e: Board) => {
                                 return<div>
                                    <Link to="/board"> <CardTitle >{e.boardName}</CardTitle></Link>
-                                    <CardText>{e.primaryInfo}</CardText><CardText>{e.created}</CardText>                                    </div>
+                                    <CardText>{e.primaryInfo}</CardText><CardText>{e.created}</CardText>                                    
+                                </div>
                             })}
                             </CardBody>
                         </Card></div>
