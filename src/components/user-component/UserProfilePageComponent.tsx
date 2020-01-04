@@ -1,7 +1,8 @@
 import React, { SyntheticEvent } from 'react'
 import { User } from '../../models/user';
-import { FormGroup, Label, Input, Form, Button, Table } from 'reactstrap'
+import { Table, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Media } from 'reactstrap'
 import { store } from '../../Store';
+import  Image  from '../../assets/userimg.png'
 
 interface IUserByIdComponentProps {
     user: User
@@ -25,26 +26,15 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
         e.preventDefault()
         this.props.userById(this.state.userId)
     }
-
     render() {
-
-        const user = store.getState().userById.user;
+        const user = store.getState().login.user;
         return (
-            <div>
-                
-                <Form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
-                    <FormGroup>
-                        <Label for="userId">User By ID</Label>
-                        <Input bsSize="sm" type="text" name="userId" id="userId" value={this.state.user_id} onChange={this.updateId} autoFocus />
-                    </FormGroup>
-                    <Button type="submit" variant="contained" className="btn btn-outline-primary" >
-                    
-                        Get User
-                    </Button>
-                </Form>
-
-            <Table hover>
-                   
+            <div className='UserCard'>          
+            <Card>
+            <img src={Image} alt='Image'  />
+        <CardBody>
+          <CardTitle><h4>Profile Details</h4></CardTitle>
+          <Table>        
                 <tbody>
                     <tr>
                         <th>Username:</th>
@@ -64,6 +54,8 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
                     </tr>
                 </tbody>
             </Table>
+        </CardBody>
+      </Card>
         </div>
         )
     }

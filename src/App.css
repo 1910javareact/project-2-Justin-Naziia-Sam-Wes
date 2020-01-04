@@ -24,7 +24,23 @@ form {
   padding: 10% 30% ;
  
 }
+Table {
+  width: 100px;
+  margin-left: 20px;
+  text-align: left;
+}
 
+img {
+  width: 200px;
+  height: 180px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+CardBody {
+  width: 50%;
+  height: 60%;
+}
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -49,4 +65,19 @@ form {
   }
 }
 
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  background: #1A2980;  
+  background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  
+  background: linear-gradient(to right, rgb(188, 191, 197), rgb(194, 236, 255)); 
+}
+.UserCard {
+  width: 60%;
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 30px black;
+  margin: 10px; 
+  margin-left: 20%;
+}
 
