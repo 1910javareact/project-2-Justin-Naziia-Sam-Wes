@@ -7,8 +7,7 @@ import { store } from '../../Store';
 
 
 interface ITopicBoardProps {
-    topicBoard: Topic[]
-    getTopicBoards: () => void
+    getTopicBoards: () => Promise<void>
 }
 
 export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
@@ -19,18 +18,21 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         }
     }
 
-    componentDidMount() {
-        this.props.getTopicBoards()
-        this.setState({
-            ...this.state,
-            topicBoard: [new Topic( 0,'','', [])]
-        })
-        
+    async componentDidMount() {
+        try {
+            let t = await this.props.getTopicBoards()
+            this.setState({
+                ...this.state,
+                topicBoard: t
+            })
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     render() {
         let tbs = store.getState().topic.topicBoard
-        if (tbs.length > 1){
+        if (tbs.length > 1) {
             return (
                 //this.state.tbs.length < 5 ? : 
                 <>
@@ -48,6 +50,6 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         } else {
             return null
         }
-        
+
     }
 }

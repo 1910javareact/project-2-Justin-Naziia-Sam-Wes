@@ -4,7 +4,7 @@ import { TopicBoardComponent } from './TopicBoardComponent'
 import { getTopicBoards } from '../../action-mappers/topic-action-mapper'
 
 
-const MapStateToProps = (state:IState) => {
+const MapStateToProps = (state: IState) => {
     return {
         topicBoard: state.topic.topicBoard
     }
@@ -14,4 +14,4 @@ const MapDispatchToProps = {
     getTopicBoards
 }
 
-export default connect(MapStateToProps,MapDispatchToProps)(TopicBoardComponent)
+export default connect(MapStateToProps, MapDispatchToProps)(TopicBoardComponent)

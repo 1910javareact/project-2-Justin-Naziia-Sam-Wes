@@ -1,5 +1,4 @@
 import { User } from "../models/user";
-import { Topic } from '../models/topic'
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
 import { userByIdReducer } from "./userbyid-reducer";
@@ -24,7 +23,7 @@ export interface IBoardState {
 }
 
 export interface ITopicBoardState {
-    topicBoard: Topic[]
+    topicBoard: []
 }
 
 export interface IUserState {
