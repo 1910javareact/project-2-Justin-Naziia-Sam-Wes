@@ -24,7 +24,7 @@ export interface IBoardState {
 }
 
 export interface ITopicBoardState {
-    topicBoard: Topic
+    topicBoard: Topic[]
 }
 
 export interface IUserState {
