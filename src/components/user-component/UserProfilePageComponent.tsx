@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react'
 import { User } from '../../models/user';
-import { Table, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Media } from 'reactstrap'
+import { Table, Card, CardBody, CardTitle } from 'reactstrap'
 import { store } from '../../Store';
 import  Image  from '../../assets/userimg.png'
 
