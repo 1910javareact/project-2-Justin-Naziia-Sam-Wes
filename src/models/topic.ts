@@ -3,13 +3,13 @@
 export class Topic {
     topicId: number
     topicName: String
-    created: String
-    boards: [] 
-    constructor(topicId: number, topicName: String, created: String, boards: []){
+    created: Date
+    topicBoards: []
+    constructor(topicId: number, topicName: String, created: Date, topicBoards: []){
         this.topicId = topicId
         this.topicName = topicName
         this.created = created
-        this.boards = boards
+        this.topicBoards = topicBoards
     }
     
 }
