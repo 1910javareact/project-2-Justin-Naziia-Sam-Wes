@@ -1,19 +1,20 @@
-import { topicTypes } from '../action-mappers/topic-action-mapper'
+import { Topic } from '../models/topic'
+import { TopicTypes } from '../action-mappers/topic-action-mapper'
 import { ITopicBoardState } from '../reducers/index'
 
 const initialState: ITopicBoardState = {
-    topicBoard: []
+    topicBoard: [new Topic(0,'',new Date(),[])]
 }
 
 export const getTopicBoardsReducer = (state = initialState, action: any) => {
-    console.log(action.payload);
+    
     switch(action.type){
-        case topicTypes.TOPIC_SUCCESS:{
+        case TopicTypes.TOPIC_SUCCESS:{
             return {
                 ...state,
                 topicBoard: action.payload.topics
             }
-        } case topicTypes.TOPIC_FAILURE:{
+        } case TopicTypes.TOPIC_FAILURE:{
             return {
                 ...state,
                 message: 'No topikos por vuu'

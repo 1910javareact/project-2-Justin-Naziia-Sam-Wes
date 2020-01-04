@@ -5,13 +5,14 @@ import './components/navbar/navbar.css';
 import NavBar from './components/navbar/NavBar';
 import { Provider } from 'react-redux';
 import { store } from './Store';
+import Login from './components/login/LoginContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
-import Login from './components/login/LoginContainer';
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
 import TopicBoardComponent  from './components/topic-board/TopicBoardContainer';
 import MakeBoardComponent from './components/makeBoard/MakeBoardContainer';
 import DisplayBoardComponent from './components/displayBoard/displayBoardContainer';
+
 
 const App: React.FC = () => {
   return (
@@ -22,10 +23,11 @@ const App: React.FC = () => {
         <NavBar />
       </nav>
           <Switch>
+          
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
-            <Route path='/home' component={TopicBoardComponent} />
+            <Route path='/' component={TopicBoardComponent} />
             <Route path='/board/create' component={MakeBoardComponent} />
             <Route path='/board/display' component={DisplayBoardComponent} />
             <Route path='/'></Route>

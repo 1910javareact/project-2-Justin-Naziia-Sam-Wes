@@ -1,35 +1,33 @@
 import React from 'react';
 import { Topic } from '../../models/topic'
 import { Board } from '../../models/board';
-import { Card, CardHeader, CardBody, CardTitle } from 'reactstrap'
+import { Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap'
 import { store } from '../../Store';
-
-
+import { Link } from 'react-router-dom';
 
 interface ITopicBoardProps {
-    getTopicBoards: () => Promise<void>
+    //topicBoard: Topic[]
+    getTopicBoards: () => void
 }
 
 export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
     constructor(props: any) {
         super(props)
         this.state = {
-            topicBoard: []
+            //topicBoard: []
+            routeToBoardId: 0
         }
     }
 
-    async componentDidMount() {
-        try {
-            let t = await this.props.getTopicBoards()
+    componentDidMount() {
+        this.props.getTopicBoards()
             this.setState({
                 ...this.state,
-                topicBoard: t
             })
-        } catch (e) {
-            console.log(e);
-        }
     }
 
+    
+     
     render() {
         let tbs = store.getState().topic.topicBoard
         if (tbs.length > 1) {
@@ -37,13 +35,16 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                 //this.state.tbs.length < 5 ? : 
                 <>
                     {tbs.map((e: Topic) => {
-                        return <Card>
+                        return <div><Card>
                             <CardHeader>{e.topicName}</CardHeader>
                             <CardBody>{e.topicBoards.map((e: Board) => {
-                                return <CardTitle>{e.boardName}</CardTitle>
+                                return<div>
+                                   <Link to="/board"> <CardTitle >{e.boardName}</CardTitle></Link>
+                                    <CardText>{e.primaryInfo}</CardText><CardText>{e.created}</CardText>                                    
+                                </div>
                             })}
                             </CardBody>
-                        </Card>
+                        </Card></div>
                     })}
                 </>
             )
@@ -53,3 +54,5 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
 
     }
 }
+
+export default TopicBoardComponent

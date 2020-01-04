@@ -7,6 +7,7 @@ import { makeBoardReducer } from "./make-board-reducer";
 import { registerReducer } from "./register-reducer";
 import { Board } from "../models/board";
 import { makeDisplayReducer } from "./display-board-reducer";
+import { Topic } from "../models/topic";
 
 export interface ILoginState {
     user: User,
@@ -23,7 +24,7 @@ export interface IBoardState {
 }
 
 export interface ITopicBoardState {
-    topicBoard: []
+    topicBoard: Topic[]
 }
 
 export interface IUserState {
