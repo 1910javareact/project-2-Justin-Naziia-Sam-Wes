@@ -20,10 +20,11 @@ const App: React.FC = () => {
             <NavBar/>
           </nav>
           <Switch>
+          
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
-            <Route path='/home' component={TopicBoardComponent}>
+            <Route path='/' component={TopicBoardComponent}>
             </Route>
         </Switch>
         </BrowserRouter>

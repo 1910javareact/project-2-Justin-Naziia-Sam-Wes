@@ -1,7 +1,6 @@
 import { apiGetTopicBoards } from '../remote/TopChatTopic'
 
-
-export const topicTypes = {
+export const TopicTypes = {
     TOPIC_SUCCESS: 'GET_TOPICS_GREAT_SUCCESS',
     TOPIC_FAILURE: 'NO_TOPICS_FOR_U'   
 }
@@ -11,19 +10,19 @@ export const getTopicBoards = () => async (dispatch: any) => {
         let res = await apiGetTopicBoards()
         if (res.status === 200) {
             dispatch({
-                type: topicTypes.TOPIC_SUCCESS,
+                type: TopicTypes.TOPIC_SUCCESS,
                 payload: {
                     topics: res.body
                 }
             })
         } else {
             dispatch({
-                type: topicTypes.TOPIC_FAILURE
+                type: TopicTypes.TOPIC_FAILURE
             })
         }
     } catch(e) {
         dispatch({
-            type: topicTypes.TOPIC_FAILURE
+            type: TopicTypes.TOPIC_FAILURE
         })
     }
 }
