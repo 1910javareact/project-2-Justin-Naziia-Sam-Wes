@@ -1,7 +1,7 @@
 import { client } from './TopChatClient'
 
 export async function apiGetTopicBoards() {
-    const response = await client.get('/home')
+    const response = await client.get('/topic/home')
    try { if (response.status === 200) {
         return {
             status: response.status,
