@@ -16,7 +16,7 @@ export const makeBoardReducer = (state = initialState, action: any) => {
         case boardTypes.SUCCESSFUL_SUBMIT: {
             return {
                 ...state,
-                message: 'Successfully submitted'
+                newBoard: action.payload.newBoard
             }
         }
         default:

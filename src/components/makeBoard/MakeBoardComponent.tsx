@@ -7,7 +7,7 @@ interface IBoardProps {
     createBoard: (boardId: number, boardName: String, primaryInfo: String, created: Date, topic: number) => Promise<void>
 }
 
-export class BoardComponent extends React.Component<IBoardProps, any> {
+export class MakeBoardComponent extends React.Component<IBoardProps, any> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -45,21 +45,22 @@ export class BoardComponent extends React.Component<IBoardProps, any> {
     }
 
     render() {
-        if(store.getState().board.newBoard.boardId) {
+        if (store.getState().board.newBoard.boardId) {
             return <Redirect to="/" />
+        } else {
+            return (
+                <>
+                    <Form onSubmit={this.callCreateBoard}>
+                        <Input value={this.state.boardName} onChange={this.updateBoardName} type="text" name="boardName" id="boardName" placeholder="Name of the board" required />
+                        <Input value={this.state.primaryInfo} onChange={this.updatePrimaryInfo} type="text" name="PrimaryInfo" id="PrimaryInfo" placeholder="Add any starting information (optional)" />
+                        <select id='Topic' placeholder='Topic' onChange={this.updateTopicId} required>
+                            <option></option>
+                            <option value={1}>Don't forget to add these</option>
+                        </select>
+                        <Button >Submit</Button>
+                    </Form>
+                </>
+            )
         }
-        return (
-            <>
-                <Form onSubmit={this.callCreateBoard}>
-                    <Input value={this.state.boardName} onChange={this.updateBoardName} type="text" name="boardName" id="boardName" placeholder="Name of the board" required />
-                    <Input value={this.state.primaryInfo} onChange={this.updatePrimaryInfo} type="text" name="PrimaryInfo" id="PrimaryInfo" placeholder="Add any starting information (optional)" />
-                    <select id='Topic' placeholder='Topic' onChange={this.updateTopicId} required>
-                        <option></option>
-                        <option value={1}>Don't forget to add these</option>
-                    </select>
-                    <Button >Submit</Button>
-                </Form>
-            </>
-        )
     }
 }

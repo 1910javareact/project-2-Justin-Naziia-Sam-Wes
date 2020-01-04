@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
 import Login from './components/login/LoginContainer';
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
-import BoardComponent from './components/makeBoard/BoardContainer';
+import BoardComponent from './components/makeBoard/MakeBoardContainer';
 
 const App: React.FC = () => {
   return (
