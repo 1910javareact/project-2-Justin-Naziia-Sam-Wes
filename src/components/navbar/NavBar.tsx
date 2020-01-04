@@ -4,10 +4,9 @@ import {
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
+  Nav
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const NavBar = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,39 +16,20 @@ const NavBar = (props: any) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">TOP CHAT</NavbarBrand>
+        <NavbarBrand>TOP CHAT</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href='/'>Home</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href='/userprofile'>User Profile</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href='/'>Make a Topic</NavLink>
-            </NavItem>
-          
-            <NavItem>
-              <NavLink href='/user/login' >Login</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href='/user/register' >Sign up</NavLink>
-            </NavItem>
-
-          </Nav>
-          
+          <Nav className="mr-auto" navbar>         
+              <Link to='/'>Home</Link>
+              <Link to='/userprofile'>User Profile</Link>
+              <Link to='/board/create'>Make a Board</Link>
+              <Link to='/user/login' >Login</Link>
+              <Link to='/user/register' >Sign up</Link>      
+          </Nav>      
         </Collapse>
       </Navbar>
     </div>
   );
 }
+
 export default NavBar;
-
-
-
-

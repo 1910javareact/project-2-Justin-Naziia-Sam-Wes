@@ -14,7 +14,8 @@ export class Login extends React.Component<ILoginProps, any> {
         this.state = {
             username: '',
             password: '',
-            userId: 0
+            userId: 0,
+            message: ''
         };
     }
 
@@ -34,7 +35,13 @@ export class Login extends React.Component<ILoginProps, any> {
 
     submitLogin = async (e: SyntheticEvent) => {
         e.preventDefault();
-        this.props.uLogin(this.state.username, this.state.password)   
+        this.props.uLogin(this.state.username, this.state.password)
+        if(store.getState().login.user.userId === 0){
+            this.setState({
+                ...this.state,
+                message: 'Invalid credentials'
+            })
+        }
     }
     
     render() {
@@ -43,7 +50,7 @@ export class Login extends React.Component<ILoginProps, any> {
         } else {
             return (
                 <div>
-                    <Container fluid dark>
+                    <Container fluid dark="true">
                     <Form onSubmit={this.submitLogin}>
                         <Row form>
                             <Col md={6}>
@@ -63,6 +70,7 @@ export class Login extends React.Component<ILoginProps, any> {
                         
                     </Form>
                     </Container>
+                    <div>{this.state.message}</div>
                 </div>
             );
         }

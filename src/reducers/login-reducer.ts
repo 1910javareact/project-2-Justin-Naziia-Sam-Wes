@@ -15,12 +15,6 @@ export const loginReducer = (state = initialState, action:any) => {
                 user: action.payload.user
             }
         }
-        case uLoginTypes.INVALID_CREDENTIALS: {
-            return {
-                ...state,
-                message: 'Invalid Credentials'
-            }
-        }
         default:
             return state
     }
