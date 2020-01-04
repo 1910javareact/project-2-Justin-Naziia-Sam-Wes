@@ -7,6 +7,7 @@ import { getTopicBoardsReducer } from "./get-topic-boards-reducer"
 import { makeBoardReducer } from "./make-board-reducer";
 import { registerReducer } from "./register-reducer";
 import { Board } from "../models/board";
+import { makeDisplayReducer } from "./display-board-reducer";
 
 export interface ILoginState {
     user: User,
@@ -41,18 +42,25 @@ export interface IRegisterState {
     password: ''
 }
 
+export interface IDisplayState {
+    showBoard: Board,
+    allThought: []
+}
+
 export interface IState {
     login: ILoginState
     topic: ITopicBoardState
     board: IBoardState
     register: IRegisterState
     userById: IUserState
+    display: IDisplayState
 }
 
 export const state = combineReducers<IState>({
     login: loginReducer,
-    topic: getTopicBoardsReducer
+    topic: getTopicBoardsReducer,
     board: makeBoardReducer,
     userById: userByIdReducer,
-    register: registerReducer
+    register: registerReducer,
+    display: makeDisplayReducer
 })

@@ -1,4 +1,4 @@
-import { IState, state } from "../../reducers";
+import { IState } from "../../reducers";
 import { connect } from "react-redux";
 import { MakeBoardComponent } from "./MakeBoardComponent";
 import { createBoard } from "../../action-mappers/board-action-mapper"

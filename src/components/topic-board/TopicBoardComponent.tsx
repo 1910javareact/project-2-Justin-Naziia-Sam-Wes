@@ -19,13 +19,11 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getTopicBoards()
-        setTimeout(()=>{
             this.setState({
                 ...this.state
             })
-        }, 2000)
         
     }
 
