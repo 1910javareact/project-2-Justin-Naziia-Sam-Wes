@@ -9,24 +9,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
 import Login from './components/login/LoginContainer';
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
-import BoardComponent from './components/makeBoard/MakeBoardContainer';
+import TopicBoardComponent  from './components/topic-board/TopicBoardContainer';
+import MakeBoardComponent from './components/makeBoard/MakeBoardContainer';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <Provider store={store}>
       <BrowserRouter>
-        <nav>
-            <NavBar/>
-          </nav>
           <Switch>
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
-            <Route path='/board/create' component={BoardComponent} />
-            <Route path='/'>
-            </Route>
-        </Switch>
+            <Route path='/home' component={TopicBoardComponent} />
+            <Route path='/board/create' component={MakeBoardComponent} />
+            <Route path='/'></Route>
+            </Switch>
         </BrowserRouter>
         </Provider>
     </div>
