@@ -7,5 +7,14 @@ nav {
 
 Nav a {
  margin: 5px 30px;
- color: black;
+ color: rgb(247, 238, 238);
+}
+
+NavbarBrand {
+color: rgb(248, 233, 233);
+}
+
+img {
+    width: 30%;
+    height: 30%;
 }
