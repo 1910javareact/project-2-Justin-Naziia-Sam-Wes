@@ -5,10 +5,6 @@ nav {
     padding: 10px 0px;   
 }
 
-NavbarBrand {
-    font-size: large;
-}
-
 Nav a {
  margin: 5px 30px;
  color: black;

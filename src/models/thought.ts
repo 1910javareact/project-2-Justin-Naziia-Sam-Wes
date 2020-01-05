@@ -1,9 +1,9 @@
 export class Thought {
     thoughtId: number
-    thought: String
+    thought: string
     created: Date
     boardId: number
-    constructor(thoughtId: number, thought: String, created: Date, boardId: number){
+    constructor(thoughtId: number, thought: string, created: Date, boardId: number){
         this.thoughtId = thoughtId
         this.thought = thought
         this.created = created

@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from 'react';
 import { Button, Form, Label, Input } from 'reactstrap'
 
 interface IRegisterUserProps {
-    registerUser: (userId:number, username:String, firstName:String, lastName:String, email:String, created:Date, password:String) => void
+    registerUser: (userId:number, username:string, firstName:string, lastName:string, email:string, created:Date, password:string) => void
 }
 
 export class RegisterUserComponent extends React.Component<IRegisterUserProps, any>{

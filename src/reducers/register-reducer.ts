@@ -14,14 +14,12 @@ const initialState: IRegisterState = {
 }
 
 export const registerReducer = (state = initialState, action: any) => {
-    switch(action.type) {
-        case rUserTypes.SUCCESSFUL_REGISTER: {
+    if(action.type === rUserTypes.SUCCESSFUL_REGISTER) {
             return {
                 ...state,
                 user: action.payload.user
             }
-        }
-        default:
-            return state
+    } else {
+        return state
     }
 }

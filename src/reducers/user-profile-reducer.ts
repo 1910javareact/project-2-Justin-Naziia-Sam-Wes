@@ -7,14 +7,12 @@ const initialState: IUserState = {
 }
 
 export const userProfileReducer = (state = initialState, action: any) => {
-    switch (action.type) {
-        case UserProfileType.GET_ALL_SAVED_SUCCESSFUL: {
+    if(action.type === UserProfileType.GET_ALL_SAVED_SUCCESSFUL) {
             return {
                 ...state,
                 saved: action.payload.saved
             }
-        }
-        default:
-            return state
+    } else {
+        return state
     }
 }

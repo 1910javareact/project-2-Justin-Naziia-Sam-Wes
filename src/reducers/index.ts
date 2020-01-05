@@ -11,7 +11,7 @@ import { Topic } from "../models/topic";
 
 export interface ILoginState {
     user: User,
-    message: String
+    message: string
 }
 
 export interface IBoardState {
@@ -21,7 +21,7 @@ export interface IBoardState {
     primaryInfo: '',
     created: Date,
     topicId: 0,
-    message: String
+    message: string
 }
 
 export interface ITopicBoardState {

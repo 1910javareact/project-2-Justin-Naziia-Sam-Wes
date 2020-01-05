@@ -10,7 +10,7 @@ import { Thought } from "../../models/thought";
 interface IBoardProps {
     displayBoard: (boardId: number) => void,
     getAllThought: (boardId: number) => void,
-    postNewThought: (thoughtId: number, thought: String, created: Date, boardId: number) => Promise<void> 
+    postNewThought: (thoughtId: number, thought: string, created: Date, boardId: number) => Promise<void> 
     boardname: ''
 }
 
@@ -49,7 +49,6 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     }
 
     render() {
-        let ab = this.state.showBoard
         return (
             <>
                 <Navbar>

@@ -37,17 +37,6 @@ img {
   margin-top: 5%;
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
 .App-link {
   color: #a56317;
 }
@@ -64,8 +53,7 @@ img {
 body {
   font-family: 'Quicksand', sans-serif;
   color: white;
-  background: #1A2980;  
-  background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  
+  background: #1A2980;
   background: linear-gradient(to right, rgb(188, 191, 197), rgb(194, 236, 255)); 
 }
 .UserCard {

@@ -42,10 +42,10 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                     return <div>
                         <div className="boardcard"><Card >
                             <CardHeader >{e.topicName}</CardHeader>
-                            <CardBody>{e.topicBoards.map((e: Board) => {
+                            <CardBody>{e.topicBoards.map((f: Board) => {
                                 return <div>
-                                    <Button onClick={() => this.submitGetBoardById(e.boardId)}> <CardTitle className="title">{e.boardName}</CardTitle></Button>
-                                    <p className="info">{e.primaryInfo}<span className="time">{e.created}</span></p>
+                                    <Button onClick={() => this.submitGetBoardById(f.boardId)}> <CardTitle className="title">{f.boardName}</CardTitle></Button>
+                                    <p className="info">{f.primaryInfo}<span className="time">{f.created}</span></p>
                                     <hr />
                                 </div>
                             })}

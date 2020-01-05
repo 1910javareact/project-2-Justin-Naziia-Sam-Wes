@@ -5,7 +5,7 @@ export const rUserTypes = {
     UNSUCCESSFUL_REGISTER: 'USER_REGISTER_UNSUCCESSFUL'
 }
 
-export const registerUser = (userId:number, username:String, firstName:String, lastName:String, email:String, created:Date, password:String) => async (dispatch: any) => {
+export const registerUser = (userId:number, username:string, firstName:string, lastName:string, email:string, created:Date, password:string) => async (dispatch: any) => {
     try {
         let res = await submitRegisterUser(userId, username, firstName, lastName, email, created, password)
         if(res.status === 200) {

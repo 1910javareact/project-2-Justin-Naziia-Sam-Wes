@@ -16,7 +16,7 @@ export async function userLogin(username: string, password: string) {
         } else {
             return {
                 status: response.status,
-                body: response.data
+                body: 'Something went wrong'
             }
         }
     } catch (e) {
@@ -25,7 +25,7 @@ export async function userLogin(username: string, password: string) {
     }
 }
 
-export async function submitRegisterUser(userId: number, username: String, firstName: String, lastName: String, email: String, created: Date, password: String) {
+export async function submitRegisterUser(userId: number, username: string, firstName: string, lastName: string, email: string, created: Date, password: string) {
     const submit = {
         userId,
         username,
@@ -45,7 +45,7 @@ export async function submitRegisterUser(userId: number, username: String, first
         } else {
             return {
                 status: response.status,
-                body: response.data
+                body: 'Something went wrong'
             }
         }
     } catch (e) {
@@ -64,7 +64,8 @@ export const getAllSavedAPI = async (id: number) => {
             }
         } else {
             return {
-                status: response.status
+                status: response.status,
+                body: 'Something went wrong'
             }
         }
     } catch (e) {

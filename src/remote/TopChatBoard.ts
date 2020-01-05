@@ -18,7 +18,7 @@ export async function submitBoard(boardId: number, boardName: string, primaryInf
         } else {
             return {
                 status: response.status,
-                body: response.data
+                body: 'Something went wrong'
             }
         }
     } catch (e) {
@@ -38,7 +38,7 @@ export async function getBoard(boardId: number) {
         } else {
             return {
                 status: response.status,
-                body: response.data
+                body: 'Something went wrong'
             }
         }
     } catch (e) {
@@ -57,7 +57,7 @@ export async function getAllThoughtAPI(boardId: number) {
         } else {
             return {
                 status: response.status,
-                body: response.data
+                body: 'Something went wrong'
             }
         }
     } catch (e) {
@@ -65,7 +65,7 @@ export async function getAllThoughtAPI(boardId: number) {
     }
 }
 
-export async function apiPostThought(thoughtId: number, thought: String, created: Date, boardId: number) {
+export async function apiPostThought(thoughtId: number, thought: string, created: Date, boardId: number) {
     let newThought = {
         thoughtId,
         thought,

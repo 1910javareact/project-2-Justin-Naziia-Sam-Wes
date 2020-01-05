@@ -11,7 +11,7 @@ export const boardTypes = {
     UNSUCESSFUL_POST_THOUGHT: 'WELCOME_TO_PROPAGANDALAND'
 }
 
-export const postNewThought = (thoughtId: number, thought: String, created: Date, boardId: number) => async (dispatch: any) =>{
+export const postNewThought = (thoughtId: number, thought: string, created: Date, boardId: number) => async (dispatch: any) =>{
     try{
         let res = await apiPostThought(thoughtId, thought, created, boardId)
         if (res.status === 201){
