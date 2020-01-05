@@ -16,6 +16,7 @@ export interface ILoginState {
 
 export interface IBoardState {
     newBoard: Board,
+    boardId: 0,
     boardName: '',
     primaryInfo: '',
     created: Date,
