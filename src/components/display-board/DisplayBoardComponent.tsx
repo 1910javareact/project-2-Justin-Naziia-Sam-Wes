@@ -1,13 +1,14 @@
-import React, { SyntheticEvent } from "react";
-import { Input, Form, Button, NavbarText, NavbarBrand, Nav } from "reactstrap";
+import React, { SyntheticEvent} from "react";
+import { Navbar, NavItem, Button } from "reactstrap";
 
 import { store } from "../../Store";
-import { Board } from "../../models/board";
+
 
 interface IBoardProps {
     displayBoard: (boardId: number) => void,
-    getAllThought: (boardId: number) => void
+    getAllThought: (boardId: number) => void,
     postNewThought: (thoughtId: number, thought: String, boardId: number, created: Date) => void //maybe promise a thought here?
+    boardname: ''
 }
 
 export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
@@ -17,13 +18,20 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
             thoughtId: 0,
             newThought: '',
             boardId: 0, //dynamically update from the store by setting a prop equal to the active boardId
-            created: new Date()
+            created: new Date(),
         };
     }
 
     componentDidMount() {
         //create a new state field on the login component that is updated when setting selecting a boardId to route to?
-        this.props.getAllThought(store.getState().topic.activeBoard.boardId)
+        // this.props.getAllThought(store.getState().topic.activeBoard.boardId)
+        // this.props.displayBoard(store.getState().topic.activeBoard.boardId)
+        
+        this.setState({
+            ...this.state,
+            
+        })
+
     }
 
     updateThought = (e: any) => {
@@ -39,28 +47,40 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     }
 
     render() {
-
         let ab = store.getState().topic.activeBoard
-        if (ab) {
+        if(ab.boardId > 0) {
             return (
                 <>
-                    {ab.map((e: Board) => {
-                        return <Nav>
-                            <NavbarBrand>{e.boardName}</NavbarBrand>
-                            <NavbarText>{e.primaryInfo}</NavbarText>
-                        </Nav>
-                    })}
-
-
-                    <Form onSubmit={this.submitPostNewThought}>
-                        <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
-                        <Button >Post Thought</Button>
-                    </Form>
+                    <Navbar>
+                        <NavItem>
+                            <p>{this.props.boardname}</p>
+                        </NavItem>
+                        <NavItem>
+                           <p>{}</p>
+                        </NavItem>
+                        <Button>
+                            Save To MyBoards
+                        </Button>
+                    </Navbar>
+                    {/* {ab.map((e: Board) => {
+                            return <div> <Navbar>
+                                <NavbarBrand>{e.boardName}</NavbarBrand>
+                                <NavbarText>{e.primaryInfo}</NavbarText>
+                            </Navbar> </div>
+                        })} */}
+    
+    
+                    {/* <Form onSubmit={this.submitPostNewThought}>
+                            <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
+                            <Button >Post Thought</Button>
+                        </Form> */}
                 </>
             )
         } else {
             return null
         }
-
+        
     }
 }
+
+export default DisplayBoardComponent

@@ -6,7 +6,8 @@ import { displayBoard, getAllThought } from "../../action-mappers/board-action-m
 const mapStateToProps = (state: IState) => {
     return {
         showBoard: state.display.showBoard,
-        allThought: state.display.allThought
+        allThought: state.display.allThought,
+        
     }
 }
 
