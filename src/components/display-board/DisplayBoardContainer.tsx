@@ -1,7 +1,7 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
 import { DisplayBoardComponent } from "./DisplayBoardComponent";
-import { displayBoard, getAllThought } from "../../action-mappers/board-action-mapper"
+import { displayBoard, getAllThought, postNewThought } from "../../action-mappers/board-action-mapper"
 
 const mapStateToProps = (state: IState) => {
     return {
@@ -13,7 +13,8 @@ const mapStateToProps = (state: IState) => {
 
 const mapDispatchToProps = {
     displayBoard,
-    getAllThought
+    getAllThought,
+    postNewThought
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayBoardComponent)

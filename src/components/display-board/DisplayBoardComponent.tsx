@@ -1,14 +1,16 @@
 import React, { SyntheticEvent } from "react";
-import { Navbar, NavItem, Button, NavbarBrand, NavbarText } from "reactstrap";
+import { Navbar, NavItem, Button, NavbarBrand, NavbarText, Form, Input } from "reactstrap";
 
 import { store } from "../../Store";
 import { Board } from "../../models/board";
+import { Thought } from "../../models/thought";
+
 
 
 interface IBoardProps {
     displayBoard: (boardId: number) => void,
     getAllThought: (boardId: number) => void,
-    postNewThought: (thoughtId: number, thought: String, boardId: number, created: Date) => void //maybe promise a thought here?
+    postNewThought: (thoughtId: number, thought: String, created: Date, boardId: number) => Promise<void> 
     boardname: ''
 }
 
@@ -25,14 +27,7 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     }
 
     componentDidMount() {
-        //create a new state field on the login component that is updated when setting selecting a boardId to route to?
-        // this.props.getAllThought(store.getState().topic.activeBoard.boardId)
-        // this.props.displayBoard(store.getState().topic.activeBoard.boardId)
-
-        this.setState({
-            ...this.state,
-            showBoard: store.getState().topic.activeBoard
-        })
+        this.props.getAllThought(store.getState().topic.activeBoard.boardId)
     }
 
     updateThought = (e: any) => {
@@ -44,7 +39,13 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
 
     submitPostNewThought = (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.postNewThought(this.state.thoughtId, this.state.newThought, this.state.boardId, this.state.created)
+        this.props.postNewThought(this.state.thoughtId, this.state.newThought, this.state.created, store.getState().topic.activeBoard.boardId)
+    }
+
+    componentDidUpdate() {
+        setInterval(() => {
+            this.forceUpdate()
+        }, 3000)
     }
 
     render() {
@@ -52,31 +53,30 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
         return (
             <>
                 <Navbar>
-                    <NavItem>
-                        <p>{store.getState().topic.activeBoard.boardName}</p>
-                    </NavItem>
-                    <NavItem>
-                        <p>{}</p>
-                    </NavItem>
+                    <NavbarBrand>
+                        {store.getState().topic.activeBoard.boardName}
+                    </NavbarBrand>
+                    <NavbarText>
+                        <p>{store.getState().topic.activeBoard.primaryInfo}</p>
+                    </NavbarText>
+                    <NavbarText>
+                        {store.getState().topic.activeBoard.created.toString()}
+                    </NavbarText>
                     <Button>
                         Save To MyBoards
-                        </Button>
+                    </Button>
                 </Navbar>
-                <div>
-                    <p>{store.getState().topic.activeBoard.boardId}</p>
-                </div>
-                {/* {ab.map((e: Board) => {
-                    return <div> <Navbar>
-                        <NavbarBrand>{e.boardName}</NavbarBrand>
-                        <NavbarText>{e.primaryInfo}</NavbarText>
-                    </Navbar> </div>
-                })} */}
 
-
-                {/* <Form onSubmit={this.submitPostNewThought}>
-                            <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
-                            <Button >Post Thought</Button>
-                        </Form> */}
+                {store.getState().display.allThought.map((e: Thought) => {
+                    return <div>
+                        <p>{e.thought}</p>
+                        <p><em>{e.created}</em></p>
+                    </div>
+                })}
+                <Form onSubmit={this.submitPostNewThought}>
+                    <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
+                    <Button >Post Thought</Button>
+                </Form>
             </>
         )
     }

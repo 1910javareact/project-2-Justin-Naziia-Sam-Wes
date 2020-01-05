@@ -25,9 +25,6 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         this.props.getBoardById(id)
         console.log(store.getState().topic.activeBoard.boardId);
         this.forceUpdate()
-        // this.setState({
-        //     showBoard: store.getState().topic.activeBoard.boardId
-        // })
     }
 
     componentDidMount() {
