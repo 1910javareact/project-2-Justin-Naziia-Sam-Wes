@@ -1,13 +1,13 @@
 import { User } from "../models/user";
-import { Topic } from '../models/topic'
 import { combineReducers } from "redux";
 import { loginReducer } from "./login-reducer";
-import { userByIdReducer } from "./userbyid-reducer";
+import { userProfileReducer } from "./user-profile-reducer";
 import { getTopicBoardsReducer } from "./get-topic-boards-reducer"
 import { makeBoardReducer } from "./make-board-reducer";
 import { registerReducer } from "./register-reducer";
 import { Board } from "../models/board";
 import { makeDisplayReducer } from "./display-board-reducer";
+import { Topic } from "../models/topic";
 
 export interface ILoginState {
     user: User,
@@ -16,6 +16,7 @@ export interface ILoginState {
 
 export interface IBoardState {
     newBoard: Board,
+    boardId: 0,
     boardName: '',
     primaryInfo: '',
     created: Date,
@@ -24,11 +25,12 @@ export interface IBoardState {
 }
 
 export interface ITopicBoardState {
-    topicBoard: Topic[]
+    topicBoard: Topic[],
+    activeBoard: Board
 }
 
 export interface IUserState {
-    user: User
+    saved: Board[]
 }
 
 export interface IRegisterState {
@@ -52,7 +54,7 @@ export interface IState {
     topic: ITopicBoardState
     board: IBoardState
     register: IRegisterState
-    userById: IUserState
+    profile: IUserState
     display: IDisplayState
 }
 
@@ -60,7 +62,7 @@ export const state = combineReducers<IState>({
     login: loginReducer,
     topic: getTopicBoardsReducer,
     board: makeBoardReducer,
-    userById: userByIdReducer,
+    profile: userProfileReducer,
     register: registerReducer,
     display: makeDisplayReducer
 })

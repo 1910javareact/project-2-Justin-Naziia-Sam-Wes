@@ -28,8 +28,9 @@ export async function submitBoard(boardId: number, boardName: string, primaryInf
 }
 
 export async function getBoard(boardId: number) {
+    console.log(boardId);
     try {
-        const response = await client.get(`/board/view-board/${boardId}`)
+        const response = await client.get(`/board/view-board?input=${boardId}`)
         if (response.status === 200) {
             return {
                 status: response.status,

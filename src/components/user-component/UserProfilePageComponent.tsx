@@ -1,19 +1,21 @@
-import React, { SyntheticEvent } from 'react'
+import React from 'react'
 import { User } from '../../models/user';
 import { Table, Card, CardBody, CardTitle } from 'reactstrap'
 import { store } from '../../Store';
 import  Image  from '../../assets/userimg.png'
+import { Link } from 'react-router-dom';
 
 interface IUserByIdComponentProps {
     user: User
-    userById: (userId: number) => void
+    getAllSaved: (userId: number) => void
 }
 
 export class UserComponent extends React.Component<IUserByIdComponentProps, any>{
     constructor(props: any) {
         super(props)
         this.state = {
-            userId: 0
+            userId: 0,
+            saved: []
         }
     }
     updateId = (e: any) => {
@@ -21,10 +23,6 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
             ...this.state,
             userId: e.target.value
         })
-    }
-    submitUserId = async (e: SyntheticEvent) => {
-        e.preventDefault()
-        this.props.userById(this.state.userId)
     }
     render() {
         const user = store.getState().login.user;
@@ -56,6 +54,7 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
             </Table>
         </CardBody>
       </Card>
+      <Link to='/board/display'>{this.state.saved}</Link>
         </div>
         )
     }

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 interface ITopicBoardProps {
     //topicBoard: Topic[]
     getTopicBoards: () => void
+    getBoardById: (boardId: number) => void
 }
 
 export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
@@ -20,10 +21,25 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         }
     }
 
+    // upRouteTo = (e: any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         routeToBoardId: e.target.value
+    //     })
+    // }
+
+    submitGetBoardById(id: number) {
+        // this.setState({
+        //     ...this.state,
+        //     routeToBoardId: id
+        // })
+        this.props.getBoardById(id)
+    }
+
     componentDidMount() {
         this.props.getTopicBoards()
             this.setState({
-                ...this.state
+                ...this.state,
             })
     }
 
@@ -31,7 +47,7 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
      
     render() {
         let tbs = store.getState().topic.topicBoard
-        if (tbs.length > 1){
+        if (tbs.length > 1) {
             return (
                 //this.state.tbs.length < 5 ? : 
                 <>
@@ -43,7 +59,7 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                                 return<div>
                                    <Link to="/board"> <CardTitle className = "title">{e.boardName}</CardTitle></Link>
                                    <p className = "info">{e.primaryInfo}<span className="time">{e.created}</span></p>           
-                                   <hr />                                  
+                                   <hr />
                                 </div>
                             })}
                             </CardBody>
@@ -56,7 +72,7 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
         } else {
             return null
         }
-        
+
     }
 }
 

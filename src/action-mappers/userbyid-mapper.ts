@@ -1,29 +1,20 @@
-import { getUserById } from "../remote/TopChatUser"
+import { getAllSavedAPI } from "../remote/TopChatUser"
 
-export const UserByIdType = {
-    USER_BY_ID_SUCCESSFUL: 'USER_BY_ID_SUCCESSFUL',
-    FAILED_USER_BY_ID: 'FAILED_USER_BY_ID'
+export const UserProfileType = {
+    GET_ALL_SAVED_SUCCESSFUL: 'GET_ALL_SAVED_SUCCESSFUL',
+    FAILED_GET_ALL_SAVED: 'FAILED_GET_ALL_SAVED'
 }
 
-export const userById = (userId: number) => async (dispatch: any) => {
+export const getAllSaved = (userId: number) => async (dispatch: any) => {
     try {
-        let res = await getUserById(userId)
+        let res = await getAllSavedAPI(userId)
         if (res.status === 200) {
             dispatch({
-                type: UserByIdType.USER_BY_ID_SUCCESSFUL,
+                type: UserProfileType.GET_ALL_SAVED_SUCCESSFUL,
                 payload: {
-                    user: res.body
+                    saved: res.body
                 }
             })
-        } else {
-            dispatch({
-                type: UserByIdType.FAILED_USER_BY_ID
-            })
         }
-
-    } catch (e) {
-        dispatch({
-            type: UserByIdType.FAILED_USER_BY_ID
-        })
-    }
+    } catch (e) {}
 }
