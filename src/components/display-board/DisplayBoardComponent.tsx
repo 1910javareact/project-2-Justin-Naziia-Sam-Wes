@@ -1,7 +1,8 @@
 import React, { SyntheticEvent } from "react";
-import { Board } from "../../models/board";
-import { Input, Form, Button } from "reactstrap";
+import { Input, Form, Button, NavbarText, NavbarBrand, Nav } from "reactstrap";
+
 import { store } from "../../Store";
+import { Board } from "../../models/board";
 
 interface IBoardProps {
     displayBoard: (boardId: number) => void,
@@ -22,7 +23,7 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
 
     componentDidMount() {
         //create a new state field on the login component that is updated when setting selecting a boardId to route to?
-        
+        this.props.getAllThought(store.getState().topic.activeBoard.boardId)
     }
 
     updateThought = (e: any) => {
@@ -38,16 +39,28 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     }
 
     render() {
-        return (
-            <>
-                <div>
 
-                </div>
-                <Form onSubmit={this.submitPostNewThought}>
-                    <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
-                    <Button >Post Thought</Button>
-                </Form>
-            </>
-        )
+        let ab = store.getState().topic.activeBoard
+        if (ab) {
+            return (
+                <>
+                    {ab.map((e: Board) => {
+                        return <Nav>
+                            <NavbarBrand>{e.boardName}</NavbarBrand>
+                            <NavbarText>{e.primaryInfo}</NavbarText>
+                        </Nav>
+                    })}
+
+
+                    <Form onSubmit={this.submitPostNewThought}>
+                        <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
+                        <Button >Post Thought</Button>
+                    </Form>
+                </>
+            )
+        } else {
+            return null
+        }
+
     }
 }

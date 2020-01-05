@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react'
+import React from 'react'
 import { User } from '../../models/user';
 import { Table, Card, CardBody, CardTitle } from 'reactstrap'
 import { store } from '../../Store';

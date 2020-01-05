@@ -25,7 +25,8 @@ export interface IBoardState {
 }
 
 export interface ITopicBoardState {
-    topicBoard: Topic[]
+    topicBoard: Topic[],
+    activeBoard: Board
 }
 
 export interface IUserState {
