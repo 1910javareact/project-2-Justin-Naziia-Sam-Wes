@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { IState } from '../../reducers'
 import  TopicBoardComponent from './TopicBoardComponent'
-import { getTopicBoards } from '../../action-mappers/topic-action-mapper'
+import { getTopicBoards, getBoardById } from '../../action-mappers/topic-action-mapper'
 
 
 const MapStateToProps = (state: IState) => {
@@ -11,7 +11,8 @@ const MapStateToProps = (state: IState) => {
 }
 
 const MapDispatchToProps = {
-    getTopicBoards
+    getTopicBoards,
+    getBoardById
 }
 
-export default connect(MapStateToProps,MapDispatchToProps)(TopicBoardComponent)
+export default connect(MapStateToProps, MapDispatchToProps)(TopicBoardComponent)

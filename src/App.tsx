@@ -10,8 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
 import TopicBoardComponent  from './components/topic-board/TopicBoardContainer';
-import MakeBoardComponent from './components/makeBoard/MakeBoardContainer';
-import DisplayBoardComponent from './components/displayBoard/displayBoardContainer';
+import MakeBoardComponent from './components/make-board/MakeBoardContainer';
+import DisplayBoardComponent from './components/display-board/DisplayBoardContainer';
 
 
 const App: React.FC = () => {
@@ -27,10 +27,9 @@ const App: React.FC = () => {
             <Route path='/userprofile' component={UserComponent} />
             <Route path='/user/login' component={Login} />
             <Route path='/user/register' component={RegisterUserComponent} />
-            <Route path='/' component={TopicBoardComponent} />
             <Route path='/board/create' component={MakeBoardComponent} />
             <Route path='/board/display' component={DisplayBoardComponent} />
-            <Route path='/'></Route>
+            <Route path='/' component={TopicBoardComponent} />
             </Switch>
         </BrowserRouter>
         </Provider>

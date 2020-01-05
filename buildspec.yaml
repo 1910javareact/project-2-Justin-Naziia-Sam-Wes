@@ -1,0 +1,17 @@
+version: 0.2
+env:
+  variables:
+    REACT_APP_ENV: "prod"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'build'
