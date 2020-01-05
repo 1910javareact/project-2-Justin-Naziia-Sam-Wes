@@ -1,8 +1,9 @@
 import { IUserState } from ".";
-import { UserProfileType } from "../action-mappers/userbyid-mapper";
+import { UserProfileType } from "../action-mappers/user-profile-mapper";
+import { Board } from "../models/board";
 
 const initialState: IUserState = {
-    saved: []
+    saved: [new Board(0, '', '', new Date(), 0)]
 }
 
 export const userProfileReducer = (state = initialState, action: any) => {
@@ -10,7 +11,7 @@ export const userProfileReducer = (state = initialState, action: any) => {
         case UserProfileType.GET_ALL_SAVED_SUCCESSFUL: {
             return {
                 ...state,
-                user: action.payload.user
+                saved: action.payload.saved
             }
         }
         default:

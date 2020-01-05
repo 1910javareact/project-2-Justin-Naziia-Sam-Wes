@@ -1,5 +1,5 @@
 import { IState } from "../../reducers";
-import { getAllSaved } from "../../action-mappers/userbyid-mapper"
+import { getAllSaved } from "../../action-mappers/user-profile-mapper"
 import { connect } from "react-redux";
 import { UserComponent } from "./UserProfilePageComponent";
 
