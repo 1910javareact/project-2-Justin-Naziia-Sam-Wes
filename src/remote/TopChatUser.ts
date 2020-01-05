@@ -54,9 +54,9 @@ export async function submitRegisterUser(userId: number, username: String, first
     }
 }
 
-export const getUserById = async (id: number) => {
+export const getAllSavedAPI = async (id: number) => {
     try {
-        const response = await client.get('/user/' + id)
+        const response = await client.get(`/user/view-saved/${id}`)
         if (response.status === 200) {
             return {
                 status: response.status,
@@ -64,55 +64,7 @@ export const getUserById = async (id: number) => {
             }
         } else {
             return {
-                status: response.status,
-                body: undefined
-            }
-        }
-    } catch (e) {
-        console.log(e);
-        throw new Error('Something went wrong')
-    }
-}
-
-export const getAllUsersAPI = async () => {
-    try {
-        const response = await client.get('/user')
-        if (response.status === 200) {
-            return {
-                status: response.status,
-                body: response.data
-            }
-        } else {
-            return {
-                status: response.status,
-                body: undefined
-            }
-        }
-    } catch (e) {
-        console.log(e);
-        throw new Error('Something went wrong')
-    }
-}
-
-export async function updateUserAPI(user_id: number, username: string, first_name: string, last_name: string, email: string) {
-    const update = {
-        user_id,
-        username,
-        first_name,
-        last_name,
-        email
-    }
-    try {
-        const response = await client.patch('/user', update)
-        if (response.status === 201) {
-            return {
-                status: response.status,
-                body: response.data
-            }
-        } else {
-            return {
-                status: response.status,
-                body: undefined
+                status: response.status
             }
         }
     } catch (e) {
