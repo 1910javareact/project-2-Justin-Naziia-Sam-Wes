@@ -31,7 +31,6 @@ export const getTopicBoards = () => async (dispatch: any) => {
 }
 
 export const getBoardById = (id: number) => async (dispatch: any) => {
-    console.log(id);
     try {
         let res = await getBoard(id)
         if (res.status === 200){
