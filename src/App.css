@@ -30,7 +30,7 @@ Table {
   text-align: left;
 }
 
-img {
+.user {
   width: 200px;
   height: 180px;
   margin-left: 5%;
@@ -64,9 +64,8 @@ img {
 body {
   font-family: 'Quicksand', sans-serif;
   color: white;
-  background: #1A2980;  
-  background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  
-  background: linear-gradient(to right, rgb(188, 191, 197), rgb(194, 236, 255)); 
+  background: #1A2980;    
+  background: linear-gradient(to right, rgb(41, 44, 49), rgb(7, 56, 78)); 
 }
 .UserCard {
   width: 60%;
@@ -87,11 +86,18 @@ body {
 }
 .time {
   float: right;
-  font-size: smaller;
+  font-size: small;
   font-style: italic; 
 }
 .title {
   color: rgb(53, 46, 156);
   text-align: left;
   font-weight: bolder;
+}
+.proftitle {
+  float: right;
+  font-size: medium;
+}
+.text {
+  color: rgb(192, 126, 39);
 }
