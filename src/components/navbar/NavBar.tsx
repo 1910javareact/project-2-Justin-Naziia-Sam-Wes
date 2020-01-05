@@ -7,6 +7,7 @@ import {
   Nav
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import  Image  from '../../assets/tclogo.jpg'
 
 const NavBar = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,20 @@ const NavBar = (props: any) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand>TOP CHAT</NavbarBrand>
+    <div >
+      <Navbar color="dark" light expand="md">
+      <NavbarBrand>
+      <img
+        src={ Image }
+        width="30"
+        height="30"
+        className="d-inline-block align-top"
+        alt="logo"
+      />
+      {/* <img src={Image} alt='Avatar'  /> */}
+    </NavbarBrand>
+        
+        {/* <NavbarBrand color ="light">TOP CHAT</NavbarBrand> */}
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>         

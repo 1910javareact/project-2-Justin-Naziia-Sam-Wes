@@ -49,8 +49,8 @@ export class Login extends React.Component<ILoginProps, any> {
             return <Redirect to="/" />
         } else {
             return (
-                <div>
-                    <Container fluid dark="true">
+                <div className = "text">
+                    <Container fluid light="true" >
                     <Form onSubmit={this.submitLogin}>
                         <Row form>
                             <Col md={6}>
