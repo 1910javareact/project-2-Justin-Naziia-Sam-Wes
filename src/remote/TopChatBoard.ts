@@ -89,3 +89,26 @@ export async function apiPostThought(thoughtId: number, thought: string, created
       throw new Error('Dont look in eclipse')      
     }
 }
+
+export async function apiSaveBoard(user_id: number, board_id: number) {
+    let submit = {
+        user_id,
+        board_id
+    }
+    try {
+        const response = await client.post(`/board/save-board/`, submit)
+        if (response.status === 200) {
+            return {
+                status: response.status,
+                body: response.data
+            }
+        } else {
+            return {
+                status: response.status,
+                body: 'Something went wrong'
+            }
+        }
+    } catch (e) {
+        throw new Error('Something went wrong')
+    }
+}

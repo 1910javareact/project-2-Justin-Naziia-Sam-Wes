@@ -1,11 +1,11 @@
 import { Board } from "../models/board";
 import { boardTypes } from "../action-mappers/board-action-mapper";
 import { IDisplayState } from ".";
-import { Thought } from "../models/thought";
 
 const initialState: IDisplayState = {
     showBoard: new Board(0, '', '', new Date(), 0),
-    allThought: []
+    allThought: [],
+    message: ''
 }
 
 export const makeDisplayReducer = (state = initialState, action: any) => {
@@ -20,6 +20,12 @@ export const makeDisplayReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 allThought: action.payload.allThought
+            }
+        }
+        case boardTypes.SUCCESSFUL_SAVE: {
+            return {
+                ...state,
+                message: 'Board saved successfully'
             }
         }
         default:

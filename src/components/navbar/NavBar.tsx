@@ -20,7 +20,7 @@ const NavBar = (props: any) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>         
-              <Link to='/'>Home</Link>
+              <Link to='/' >Home</Link>
               <Link to='/userprofile'>User Profile</Link>
               <Link to='/board/create'>Make a Board</Link>
               <Link to='/user/login' >Login</Link>
