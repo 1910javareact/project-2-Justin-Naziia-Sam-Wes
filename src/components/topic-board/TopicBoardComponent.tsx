@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 interface ITopicBoardProps {
     //topicBoard: Topic[]
     getTopicBoards: () => void
+    getBoardById: (boardId: number) => void
 }
 
 export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
@@ -17,6 +18,21 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
             //topicBoard: []
             routeToBoardId: 0
         }
+    }
+
+    // upRouteTo = (e: any) => {
+    //     this.setState({
+    //         ...this.state,
+    //         routeToBoardId: e.target.value
+    //     })
+    // }
+
+    submitGetBoardById(id: number) {
+        // this.setState({
+        //     ...this.state,
+        //     routeToBoardId: id
+        // })
+        this.props.getBoardById(id)
     }
 
     componentDidMount() {
@@ -39,7 +55,7 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                             <CardHeader>{e.topicName}</CardHeader>
                             <CardBody>{e.topicBoards.map((e: Board) => {
                                 return<div>
-                                   <Link to="/board"> <CardTitle >{e.boardName}</CardTitle></Link>
+                                   <Link to="/board/display" onClick={() => this.submitGetBoardById(e.boardId)}><CardTitle >{e.boardName}</CardTitle></Link>
                                     <CardText>{e.primaryInfo}</CardText><CardText>{e.created}</CardText>                                    
                                 </div>
                             })}

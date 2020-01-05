@@ -4,6 +4,7 @@ import { Board } from "../models/board"
 
 const initialState: IBoardState = {
     newBoard: new Board(0, '', '', new Date(), 0),
+    boardId: 0,
     boardName: '',
     primaryInfo: '',
     created: new Date(),

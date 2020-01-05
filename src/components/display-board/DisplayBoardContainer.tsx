@@ -1,6 +1,6 @@
 import { IState } from "../../reducers";
 import { connect } from "react-redux";
-import { DisplayBoardComponent } from "./displayBoardComponent";
+import { DisplayBoardComponent } from "./DisplayBoardComponent";
 import { displayBoard, getAllThought } from "../../action-mappers/board-action-mapper"
 
 const mapStateToProps = (state: IState) => {
