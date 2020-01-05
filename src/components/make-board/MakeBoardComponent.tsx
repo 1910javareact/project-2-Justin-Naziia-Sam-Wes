@@ -4,7 +4,7 @@ import { store } from '../../Store';
 import { Redirect } from 'react-router-dom';
 
 interface IBoardProps {
-    createBoard: (boardId: number, boardName: String, primaryInfo: String, created: Date, topic: number) => Promise<void>
+    createBoard: (boardId: number, boardName: string, primaryInfo: string, created: Date, topic: number) => Promise<void>
 }
 
 export class MakeBoardComponent extends React.Component<IBoardProps, any> {

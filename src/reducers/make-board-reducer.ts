@@ -4,6 +4,7 @@ import { Board } from "../models/board"
 
 const initialState: IBoardState = {
     newBoard: new Board(0, '', '', new Date(), 0),
+    boardId: 0,
     boardName: '',
     primaryInfo: '',
     created: new Date(),
@@ -12,14 +13,12 @@ const initialState: IBoardState = {
 }
 
 export const makeBoardReducer = (state = initialState, action: any) => {
-    switch(action.type) {
-        case boardTypes.SUCCESSFUL_SUBMIT: {
+    if(action.type === boardTypes.SUCCESSFUL_SUBMIT) {
             return {
                 ...state,
                 newBoard: action.payload.newBoard
             }
-        }
-        default:
-            return state
+    } else {
+        return state
     }
 }
