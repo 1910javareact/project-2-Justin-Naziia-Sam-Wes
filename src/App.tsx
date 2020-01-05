@@ -10,8 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserComponent from "./components/user-component/UserProfilePageContainer";
 import RegisterUserComponent from './components/register-user/RegisterUserContainer';
 import TopicBoardComponent  from './components/topic-board/TopicBoardContainer';
-import MakeBoardComponent from './components/makeBoard/MakeBoardContainer';
-import DisplayBoardComponent from './components/displayBoard/displayBoardContainer';
+import MakeBoardComponent from './components/make-board/MakeBoardContainer';
+import DisplayBoardComponent from './components/display-board/DisplayBoardContainer';
 
 
 const App: React.FC = () => {

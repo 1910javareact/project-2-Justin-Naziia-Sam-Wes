@@ -9,9 +9,6 @@ cd remote
 code *.ts
 cd ..
 cd components
-cd makeBoard
-code *.tsx
-cd ..
 cd login
 code *.tsx
 cd ..
@@ -25,6 +22,12 @@ cd register-user
 code *.tsx
 cd ..
 cd topic-board
+code *.tsx
+cd ..
+cd make-board
+code *.tsx
+cd ..
+cd display-board
 code *.tsx
 cd ..
 cd ..
