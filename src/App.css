@@ -46,7 +46,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   color: white;
   background: #1A2980;
-  background: linear-gradient(to right, rgb(40, 49, 70), rgb(4, 78, 112)); 
+  background: linear-gradient(to right, rgb(13, 27, 61), rgb(8, 79, 112)); 
 }
 .UserCard {
   width: 60%;
