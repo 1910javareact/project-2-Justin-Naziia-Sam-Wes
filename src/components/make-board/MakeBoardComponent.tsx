@@ -55,7 +55,10 @@ export class MakeBoardComponent extends React.Component<IBoardProps, any> {
                         <Input value={this.state.primaryInfo} onChange={this.updatePrimaryInfo} type="text" name="PrimaryInfo" id="PrimaryInfo" placeholder="Add any starting information (optional)" />
                         <select id='Topic' placeholder='Topic' onChange={this.updateTopicId} required>
                             <option></option>
-                            <option value={1}>Don't forget to add these</option>
+                            <option value={1}>Computer Science</option>
+                            <option value={2}>Sports</option>
+                            <option value={3}>Video Games</option>
+                            <option value={4}>Gardens</option>
                         </select>
                         <Button >Submit</Button>
                     </Form>
