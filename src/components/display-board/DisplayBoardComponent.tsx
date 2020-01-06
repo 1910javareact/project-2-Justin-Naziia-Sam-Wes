@@ -50,7 +50,6 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
             this.forceUpdate()
         }, 3000)
     }
-
     saveThisBoard = (e: SyntheticEvent) => {
         e.preventDefault()
         this.props.saveBoard(store.getState().login.user.userId, store.getState().topic.activeBoard.boardId)
@@ -70,15 +69,16 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
                     <NavbarText>
                         {store.getState().topic.activeBoard.created.toString()}
                     </NavbarText>
-                    <Button onClick={this.saveThisBoard}>
+                    <Button outline color="primary" size="sm" onClick={this.saveThisBoard}>
                         Save To MyBoards
                     </Button>
                 </Navbar>
 
                 {store.getState().display.allThought.map((e: Thought) => {
-                    return <div>
+                    return <div >
                         <p>{e.thought}</p>
                         <p><em>{e.created}</em></p>
+                        <hr/>
                     </div>
                 })}
                 <Form onSubmit={this.submitPostNewThought}>

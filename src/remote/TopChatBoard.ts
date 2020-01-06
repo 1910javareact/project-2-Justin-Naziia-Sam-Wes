@@ -112,3 +112,28 @@ export async function apiSaveBoard(user_id: number, board_id: number) {
         throw new Error('Something went wrong')
     }
 }
+
+export async function apiPostThought(thoughtId: number, thought: string, created: Date, boardId: number) {
+    let newThought = {
+        thoughtId,
+        thought,
+        created,
+        boardId
+    }
+    try {
+        const response = await client.post(`/thought/`, newThought)
+        if (response.status === 200){
+            return {
+                status: response.status,
+                body: response.data
+            }
+        } else {
+            return {
+                status: response.status,
+                body: 'Probably added an extra s somewhere'
+            }
+        } 
+    } catch(e) {
+      throw new Error('Dont look in eclipse')      
+    }
+}
