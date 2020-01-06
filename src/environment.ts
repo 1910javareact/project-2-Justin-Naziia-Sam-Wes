@@ -1,6 +1,6 @@
 
 let devEnvironment = {
-    baseUrl:'http://3.85.168.106:8888'
+    baseUrl:'http://localhost:8888'
 }
 
 let prodEnvironment = {
@@ -8,7 +8,7 @@ let prodEnvironment = {
 }
 
 export let environment = {
-    baseUrl: 'http://3.85.168.106:8888'
+    baseUrl: 'http://localhost:8888'
 }
 
 if(process.env.REACT_APP_ENV === 'dev'){

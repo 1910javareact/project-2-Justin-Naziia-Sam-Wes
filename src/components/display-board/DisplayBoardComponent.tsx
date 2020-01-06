@@ -58,8 +58,8 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     render() {
         return (
             store.getState().login.user.userId ?
-            <>
-                <Navbar>
+            <div className = "topics">
+                <Navbar className = "onetopic">
                     <NavbarBrand>
                         {store.getState().topic.activeBoard.boardName}
                     </NavbarBrand>
@@ -88,7 +88,7 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
                 <div>
                     <p>{this.state.message}</p>
                 </div>
-            </>: 
+            </div>: 
         <Redirect to='/user/login' />
         ) 
     }

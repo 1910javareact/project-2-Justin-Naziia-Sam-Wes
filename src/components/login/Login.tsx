@@ -46,7 +46,11 @@ export class Login extends React.Component<ILoginProps, any> {
     
     render() {
         if(store.getState().login.user.userId){
+            if(store.getState().topic.activeBoard.boardId) {
+                return <Redirect to="/board/display" />
+            } else {
             return <Redirect to="/" />
+            }
         } else {
             return (
                 <div className = "text">
