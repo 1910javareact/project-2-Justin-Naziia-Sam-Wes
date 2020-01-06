@@ -3,18 +3,12 @@
 nav {
     background:#c0540cfd;
     padding: 10px 0px;   
-}
-
+  }
 Nav a {
- margin: 5px 30px;
- color: rgb(247, 238, 238);
-}
-
-NavbarBrand {
-color: rgb(248, 233, 233);
-}
-
+    margin: 5px 30px;
+    color: rgb(247, 238, 238);
+   }
 img {
-    width: 30%;
-    height: 30%;
-}
+       width: 30%;
+       height: 30%;
+   }
