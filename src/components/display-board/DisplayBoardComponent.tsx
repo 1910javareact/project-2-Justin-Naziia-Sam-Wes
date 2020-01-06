@@ -52,7 +52,7 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
         return (
             <>
             <div className = "topics">
-                <Navbar >
+                <Navbar className = "onetopic">
                     <NavbarBrand >
                         {store.getState().topic.activeBoard.boardName}
                     </NavbarBrand>
@@ -66,10 +66,9 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
                         Save To My Boards
                     </Button>
                 </Navbar>
-                </div>
 
                 {store.getState().display.allThought.map((e: Thought) => {
-                    return <div>
+                    return <div >
                         <p>{e.thought}</p>
                         <p><em>{e.created}</em></p>
                         <hr/>
@@ -79,6 +78,7 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
                     <Input value={this.state.newThought} onChange={this.updateThought} type="text" name="Thought" id="Thought" placeholder="Enter your thoughts" />
                     <Button >Post Thought</Button>
                 </Form>
+                </div>
             </>
         )
     }
