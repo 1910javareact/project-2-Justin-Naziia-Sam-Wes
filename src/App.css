@@ -44,7 +44,7 @@ Table {
 }
 body {
   font-family: 'Quicksand', sans-serif;
-  color: white;
+  color: black;
   background: #1A2980;
   background: linear-gradient(to right, rgb(13, 27, 61), rgb(8, 79, 112)); 
 }
