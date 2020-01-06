@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import { Navbar, NavItem, Button, NavbarBrand, NavbarText, Form, Input } from "reactstrap";
+import { Navbar, Button, NavbarBrand, NavbarText, Form, Input } from "reactstrap";
 
 import { store } from "../../Store";
 import { Board } from "../../models/board";
@@ -51,8 +51,9 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
     render() {
         return (
             <>
-                <Navbar>
-                    <NavbarBrand>
+            <div className = "topics">
+                <Navbar >
+                    <NavbarBrand >
                         {store.getState().topic.activeBoard.boardName}
                     </NavbarBrand>
                     <NavbarText>
@@ -61,15 +62,17 @@ export class DisplayBoardComponent extends React.Component<IBoardProps, any> {
                     <NavbarText>
                         {store.getState().topic.activeBoard.created.toString()}
                     </NavbarText>
-                    <Button>
-                        Save To MyBoards
+                    <Button outline color="primary" size="sm">
+                        Save To My Boards
                     </Button>
                 </Navbar>
+                </div>
 
                 {store.getState().display.allThought.map((e: Thought) => {
                     return <div>
                         <p>{e.thought}</p>
                         <p><em>{e.created}</em></p>
+                        <hr/>
                     </div>
                 })}
                 <Form onSubmit={this.submitPostNewThought}>

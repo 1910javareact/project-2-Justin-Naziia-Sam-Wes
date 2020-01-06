@@ -44,7 +44,7 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
                             <CardHeader >{e.topicName}</CardHeader>
                             <CardBody>{e.topicBoards.map((f: Board) => {
                                 return <div>
-                                    <Button onClick={() => this.submitGetBoardById(f.boardId)}> <CardTitle className="title">{f.boardName}</CardTitle></Button>
+                                    <Button color="link" onClick={() => this.submitGetBoardById(f.boardId)}> <CardTitle className="title">{f.boardName}</CardTitle></Button>
                                     <p className="info">{f.primaryInfo}<span className="time">{f.created}</span></p>
                                     <hr />
                                 </div>
