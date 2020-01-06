@@ -4,10 +4,8 @@ import { Board } from '../../models/board';
 import { Card, CardHeader, CardBody, CardTitle, Button } from 'reactstrap'
 import { store } from '../../Store';
 import { Redirect } from 'react-router-dom';
-// import './components/topic-board/topicBoard.css';
 
 interface ITopicBoardProps {
-    //topicBoard: Topic[]
     getTopicBoards: () => void
     getBoardById: (boardId: number) => void
 }
@@ -23,7 +21,6 @@ export class TopicBoardComponent extends React.Component<ITopicBoardProps, any>{
 
     submitGetBoardById(id: number) {
         this.props.getBoardById(id)
-        console.log(store.getState().topic.activeBoard.boardId);
         this.forceUpdate()
     }
 

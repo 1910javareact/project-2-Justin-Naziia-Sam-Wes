@@ -33,6 +33,7 @@ export class UserComponent extends React.Component<IUserByIdComponentProps, any>
                 <div className='UserCard'>
                     <Card>
                         <img className = 'user' src={Image} alt='Avatar' />
+
                         <CardBody>
                             <CardTitle><h4>Profile Details</h4></CardTitle>
                             <Table>

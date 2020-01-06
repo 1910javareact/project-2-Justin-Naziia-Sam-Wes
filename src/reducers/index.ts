@@ -46,7 +46,8 @@ export interface IRegisterState {
 
 export interface IDisplayState {
     showBoard: Board,
-    allThought: []
+    allThought: [],
+    message: string
 }
 
 export interface IState {

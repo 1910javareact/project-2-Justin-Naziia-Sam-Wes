@@ -14,7 +14,8 @@ export const getTopicBoardsReducer = (state = initialState, action: any) => {
         case TopicTypes.TOPIC_SUCCESS:{
             return {
                 ...state,
-                topicBoard: action.payload.topics
+                topicBoard: action.payload.topics,
+                activeBoard: new Board(0, '', '', new Date(), 0)
             }
         } case TopicTypes.TOPIC_FAILURE:{
             return {
